@@ -1,0 +1,76 @@
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import BlogDetailsCard from '../components/BlogDetailsCard';
+import LoadingSpinner from '../components/LoadingSpinner';
+import useAuth from '../hooks/useAuth';
+import toast from 'react-hot-toast';
+
+const BlogDetails = () => {
+    const [blog, setBlog] = useState({})
+    const [comments, setComments] = useState([]);
+    const { id } = useParams()
+    const { user } = useAuth()
+
+    console.log(comments);
+
+    useEffect(() => {
+        // get blog 
+        const blogData = async () => {
+            const { data } = await axios.get(`http://localhost:5000/blog/${id}`)
+            setBlog(data)
+        };
+
+
+        // gets comments
+        const getComments = async () => {
+            const { data } = await axios.get(`http://localhost:5000/comments/${id}`);
+            setComments(data);
+        };
+
+
+        blogData()
+        getComments();
+    }, [id])
+
+
+    // comment submit DB 
+    const handleCommentSubmit = async (commentText, id, author, author_photoUrl, setCommentText) => {
+        if (commentText.trim()) {
+            const newComment = {
+                blog_id: id,
+                username: user?.displayName,
+                profilePicture: user?.photoURL,
+                commentText,
+                createdAt: new Date().toISOString(),
+                author,
+                author_photoUrl
+            };
+            try {
+                const { data } = await axios.post('http://localhost:5000/add-comment', newComment);
+                toast.success('Your comment submitted successfully.!')
+                setComments([...comments, newComment]);
+                setCommentText("");
+
+            } catch (err) {
+                toast.error(err.message)
+            }
+        }
+    };
+
+
+
+    // console.log(blog);
+    return (
+        <div className="p-8 py-32 bg-[#f5f6ff]">
+            <h2 className="text-4xl  font-bold mb-4 text-center">Blog Details</h2>
+            <div className="w-10/12 mx-auto mt-10">
+                {
+                    <BlogDetailsCard blog={blog} handleCommentSubmit={handleCommentSubmit} comments={comments}></BlogDetailsCard>
+                }
+            </div>
+        </div>
+    );
+};
+
+export default BlogDetails;
