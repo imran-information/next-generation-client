@@ -41,17 +41,26 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, async currentUser => {
             console.log("currentUser=>", currentUser);
             if (currentUser?.email) {
+                setUser(currentUser)
                 const userEmail = currentUser.email;
                 try {
-                    const { data } = await axios.post('http://localhost:5000/jwt', { userEmail }, )
+                    const { data } = await axios.post('http://localhost:5000/jwt', { userEmail }, {
+                        withCredentials: true
+                    })
                     console.log(data);
                 } catch (err) {
                     console.log(err.message);
                 }
-
-                setUser(currentUser)
             } else {
                 setUser(currentUser)
+                try {
+                    const { data } = await axios.get('http://localhost:5000/signOut', {
+                        withCredentials: true
+                    })
+                    console.log(data);
+                } catch (err) {
+                    console.log(err.message);
+                }
             }
             setLoading(false)
         })
