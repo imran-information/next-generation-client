@@ -17,11 +17,11 @@ const Wishlist = () => {
 
     const wishlistsData = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:5000/wishlists/${user?.email}`)
+            const { data } = await axios.get(`http://localhost:5000/wishlists/${user?.email}`, {withCredentials: true})
             setWishlists(data)
 
         } catch (err) {
-            toast.error(err.message)
+            toast.error(err.response.data.message)
         }
     }
 
