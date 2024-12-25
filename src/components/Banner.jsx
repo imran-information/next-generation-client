@@ -16,7 +16,7 @@ const Banner = () => {
                     <div className="max-w-2xl">
                         <h1 className="mb-5 text-4xl md:text-6xl font-bold text-white">Continuous integration with NextGen</h1>
                         <p className="mb-5">
-                            Next Generation refers to the latest advancements or iterations of technology, products, or systems designed to surpass the capabilities of their predecessors.
+                            Next Generation refers to the latest advancements or iterations of technology, products, or systems designed to surpass the capabilities of their predecessors
                         </p>
                         <div className=" flex  justify-center items-center gap-3">
                             <motion.button whileHover={{ scale: 1.1 }}
