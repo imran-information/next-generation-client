@@ -17,7 +17,7 @@ const Wishlist = () => {
 
     const wishlistsData = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:5000/wishlists/${user?.email}`, {withCredentials: true})
+            const { data } = await axios.get(`http://localhost:5000/wishlists/${user?.email}`, { withCredentials: true })
             setWishlists(data)
 
         } catch (err) {
