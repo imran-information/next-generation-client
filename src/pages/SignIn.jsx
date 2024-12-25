@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 
 const SignIn = () => {
     const navigate = useNavigate()
@@ -39,7 +40,10 @@ const SignIn = () => {
 
 
     return (
-        <div className="hero bg-base-200 py-20">
+        <div className="hero min-h-screen bg-base-200 py-20">
+            <Helmet>
+                <title>Next Gen | SignIn</title>
+            </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>

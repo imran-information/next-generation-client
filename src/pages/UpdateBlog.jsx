@@ -4,6 +4,7 @@ import useAuth from '../hooks/useAuth';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../hooks/useAxiosCecure';
+import { Helmet } from 'react-helmet';
 
 
 const UpdateBlog = () => {
@@ -68,6 +69,9 @@ const UpdateBlog = () => {
 
     return (
         <div className="py-40 min-h-screen bg-[#f5f6ff]">
+            <Helmet>
+                <title>Next Gen | Update Blog</title>
+            </Helmet>
             <div className="max-w-lg bg-white rounded mx-auto p-5 ">
                 <h1 className="text-2xl font-bold mb-4 text-center">Update Blog</h1>
                 <form onSubmit={handleSubmit} className="space-y-4 ">

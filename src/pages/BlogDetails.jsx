@@ -6,6 +6,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../hooks/useAxiosCecure';
+import { Helmet } from 'react-helmet';
 
 const BlogDetails = () => {
     const [blog, setBlog] = useState({})
@@ -65,6 +66,9 @@ const BlogDetails = () => {
     // console.log(blog);
     return (
         <div className="p-8 py-32 bg-[#f5f6ff]">
+            <Helmet>
+                <title>Next Gen | Blog Details</title>
+            </Helmet>
             <h2 className="text-4xl  font-bold mb-4 text-center">Blog Details</h2>
             <div className="w-10/12 mx-auto mt-10">
                 {

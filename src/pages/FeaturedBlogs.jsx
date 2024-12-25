@@ -8,6 +8,7 @@ import {
 import { format } from "date-fns";
 import moment from 'moment';
 import useAxiosSecure from '../hooks/useAxiosCecure';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -99,6 +100,9 @@ const FeaturedBlogs = () => {
         // </div>
 
         <div className="py-32 min-h-screen bg-[#f5f6ff]">
+            <Helmet>
+                <title>Next Gen | Top 10 Posts</title>
+            </Helmet>
             <div className="max-w-4xl mx-auto bg-white shadow rounded p-5">
                 <h1 className="text-2xl font-bold mb-5 text-center">Top 10 Posts</h1>
                 <table className="min-w-full table-auto border-collapse border border-gray-300">

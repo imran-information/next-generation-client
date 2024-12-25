@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 
 import BlogCard from '../components/BlogCard';
 import useAxiosSecure from '../hooks/useAxiosCecure';
+import { Helmet } from 'react-helmet';
 
 const AllBlogs = () => {
     const navigate = useNavigate()
@@ -51,6 +52,9 @@ const AllBlogs = () => {
 
     return (
         <div className="p-8 py-32 min-h-screen bg-[#f5f6ff]">
+            <Helmet>
+                <title>Next Gen | All Blog</title>
+            </Helmet>
             <h2 className="text-4xl  font-bold mb-4 text-center">All Blogs</h2>
             <div className="md:flex justify-around items-center w-10/12 mx-auto">
                 <div className="flex-1">

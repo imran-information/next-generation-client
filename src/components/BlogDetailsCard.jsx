@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 
+
 const BlogDetailsCard = ({ blog, handleCommentSubmit, comments }) => {
     const navigate = useNavigate();
     const { user } = useAuth()
@@ -10,11 +11,11 @@ const BlogDetailsCard = ({ blog, handleCommentSubmit, comments }) => {
 
     const isBlogOwner = author_email === user?.email;
 
-    
+
 
     return (
         <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition">
-
+            
             <img
                 className="w-full h-96 object-cover"
                 src={imageUrl || "https://img.freepik.com/free-photo/red-light-round-podium-black-background-mock-up_43614-950.jpg?t=st=1734937221~exp=1734940821~hmac=9122502d0978c14175c28629bbfcfa5aca68dd1d7202605369f9cb01bf16fc4e&w=826"}

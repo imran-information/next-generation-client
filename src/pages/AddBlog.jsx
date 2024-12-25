@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../hooks/useAxiosCecure';
+import { Helmet } from 'react-helmet';
 
 const AddBlog = () => {
     const { user } = useAuth()
@@ -53,6 +54,9 @@ const AddBlog = () => {
 
     return (
         <div className="py-40 min-h-screen bg-[#f5f6ff]">
+            <Helmet>
+                <title>Next Gen | Add Blog</title>
+            </Helmet>
             <div className="max-w-lg bg-white rounded mx-auto p-5 ">
                 <h1 className="text-2xl font-bold mb-4 text-center">Add Blog</h1>
                 <form onSubmit={handleSubmit} className="space-y-4 ">
