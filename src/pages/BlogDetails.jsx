@@ -5,26 +5,28 @@ import BlogDetailsCard from '../components/BlogDetailsCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
+import useAxiosSecure from '../hooks/useAxiosCecure';
 
 const BlogDetails = () => {
     const [blog, setBlog] = useState({})
     const [comments, setComments] = useState([]);
     const { id } = useParams()
     const { user } = useAuth()
+    const instance = useAxiosSecure()
 
     console.log(comments);
 
     useEffect(() => {
         // get blog 
         const blogData = async () => {
-            const { data } = await axios.get(`http://localhost:5000/blog/${id}`)
+            const { data } = await instance.get(`/blog/${id}`)
             setBlog(data)
         };
 
 
         // gets comments
         const getComments = async () => {
-            const { data } = await axios.get(`http://localhost:5000/comments/${id}`);
+            const { data } = await instance.get(`/comments/${id}`);
             setComments(data);
         };
 
@@ -47,7 +49,7 @@ const BlogDetails = () => {
                 author_photoUrl
             };
             try {
-                const { data } = await axios.post('http://localhost:5000/add-comment', newComment);
+                const { data } = await instance.post('/add-comment', newComment);
                 toast.success('Your comment submitted successfully.!')
                 setComments([...comments, newComment]);
                 setCommentText("");

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import useAxiosSecure from '../hooks/useAxiosCecure';
 
 
 const UpdateBlog = () => {
@@ -10,6 +11,7 @@ const UpdateBlog = () => {
     const { id } = useParams()
     const { user } = useAuth()
     const [blog, setBlog] = useState({});
+    const instance = useAxiosSecure()
 
     const { title, imageUrl, category, shortDescription, longDescription, date, author_email, author, author_photoUrl } = blog || {};
 
@@ -27,7 +29,7 @@ const UpdateBlog = () => {
 
     useEffect(() => {
         const blogData = async () => {
-            const { data } = await axios.get(`http://localhost:5000/blog/${id}`)
+            const { data } = await instance.get(`/blog/${id}`)
             setBlog(data)
 
             setFormData({
@@ -52,9 +54,9 @@ const UpdateBlog = () => {
         e.preventDefault();
 
         try {
-            const { data } = await axios.patch(`http://localhost:5000/update-blog/${id}`, formData)
+            const { data } = await instance.patch(`/update-blog/${id}`, formData)
             toast.success('Blog information updated successfully.!')
-            navigate('/all-blogs')
+            navigate(`/blog-details/${id}`)
             console.log(data);
         } catch (err) {
             toast.error("Error updating blog:" + err.message);

@@ -2,16 +2,18 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import BlogCard from './BlogCard';
 import useAuth from '../hooks/useAuth';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import useAxiosSecure from '../hooks/useAxiosCecure';
 
 const RecentBlogPosts = () => {
     const navigate = useNavigate()
     const { user } = useAuth()
+    const instance = useAxiosSecure()
     const [blogs, setBlogs] = useState([]);
 
     const blogsData = async () => {
-        const { data } = await axios.get('http://localhost:5000/blogs')
+        const { data } = await instance.get('/blogs')
         setBlogs(data)
     }
     // console.log(blogs);
@@ -37,8 +39,9 @@ const RecentBlogPosts = () => {
             email: user?.email,
         }
 
+        // instance not work !!!
         try {
-            await axios.post('http://localhost:5000/add-wishlist', wishlistData)
+            await axios.post(`${import.meta.env.VITE_API_URL}/add-wishlist`, wishlistData)
             toast.success('wishlist added successfully.!')
             navigate('/wishlist')
         } catch (err) {

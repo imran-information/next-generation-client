@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import useAxiosSecure from '../hooks/useAxiosCecure';
 
 const AddBlog = () => {
     const { user } = useAuth()
     const navigate = useNavigate()
+    const instance = useAxiosSecure()
     const [formData, setFormData] = useState({
         title: "",
         imageUrl: "",
@@ -29,7 +31,7 @@ const AddBlog = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/add-blog', formData)
+            await instance.post('/add-blog', formData)
             // console.log("Blog Submitted:", formData);
             toast.success('Blog information submitted successfully.!')
             navigate('/all-blogs')

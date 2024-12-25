@@ -3,12 +3,15 @@ import useAuth from '../hooks/useAuth';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import WishlistCard from '../components/WishlistCard';
+import useAxiosSecure from '../hooks/useAxiosCecure';
+
 
 const Wishlist = () => {
     const { user } = useAuth()
+    const instance = useAxiosSecure()
     const [wishlists, setWishlists] = useState([]);
 
-    console.log(wishlists);
+    // console.log(wishlists);
 
     useEffect(() => {
 
@@ -17,7 +20,7 @@ const Wishlist = () => {
 
     const wishlistsData = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:5000/wishlists/${user?.email}`, { withCredentials: true })
+            const { data } = await instance.get(`/wishlists/${user?.email}`,)
             setWishlists(data)
 
         } catch (err) {
@@ -29,7 +32,7 @@ const Wishlist = () => {
     // Wishlist delete 
     const handleDeleteWishlist = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/delete-wishlist/${id}`)
+            await instance.delete(`/delete-wishlist/${id}`)
             toast.success('wishlist delete successfully.!')
             wishlistsData()
         } catch (err) {

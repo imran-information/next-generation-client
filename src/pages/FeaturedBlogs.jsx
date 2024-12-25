@@ -7,18 +7,21 @@ import {
 } from "@tanstack/react-table";
 import { format } from "date-fns";
 import moment from 'moment';
+import useAxiosSecure from '../hooks/useAxiosCecure';
+
 
 
 const FeaturedBlogs = () => {
     const [topPosts, setTopPosts] = useState([]);
     const columnHelper = createColumnHelper();
+    const instance = useAxiosSecure()
 
-console.log(topPosts);
+    console.log(topPosts);
 
     useEffect(() => {
         const getTopPosts = async () => {
             try {
-                const { data } = await axios.get("http://localhost:5000/top-posts");
+                const { data } = await instance.get("/top-posts");
                 setTopPosts(data);
             } catch (error) {
                 console.error("Error fetching top posts:", error);
@@ -50,7 +53,7 @@ console.log(topPosts);
 
             cell: (info) => {
                 const date = new Date(info.getValue());
-                return date.toLocaleDateString(); 
+                return date.toLocaleDateString();
             },
         }),
     ];

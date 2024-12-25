@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 
 
 const Navbar = () => {
     const { user, handleSignOutUser } = useAuth();
+    const navigate = useNavigate()
     const links = <>
         <li className=''><NavLink to='/'>Home</NavLink></li>
         <li className=''><NavLink to='/add-blog'>Add Blog</NavLink></li>
@@ -18,6 +19,7 @@ const Navbar = () => {
         try {
             await handleSignOutUser()
             toast.success('Sign Out Successfully..!')
+            navigate('/')
         } catch (err) {
             toast.error(err?.message)
         }

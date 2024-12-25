@@ -5,6 +5,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 import BlogCard from '../components/BlogCard';
+import useAxiosSecure from '../hooks/useAxiosCecure';
 
 const AllBlogs = () => {
     const navigate = useNavigate()
@@ -12,10 +13,11 @@ const AllBlogs = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [blogs, setBlogs] = useState([]);
     const [categoryFilter, setCategoryFilter] = useState('');
+    const instance = useAxiosSecure()
 
     useEffect(() => {
         const blogsData = async () => {
-            const { data } = await axios.get(`http://localhost:5000/all-blogs?category=${categoryFilter}&search=${searchQuery}`)
+            const { data } = await instance.get(`/all-blogs?category=${categoryFilter}&search=${searchQuery}`)
             setBlogs(data)
         }
         blogsData()
@@ -36,8 +38,10 @@ const AllBlogs = () => {
             email: user?.email,
         }
 
+
+        // instance not work !!!
         try {
-            await axios.post('http://localhost:5000/add-wishlist', wishlistData)
+            await axios.post(`${import.meta.env.VITE_API_URL}/add-wishlist`, wishlistData)
             toast.success('wishlist added successfully.!')
             navigate('/wishlist')
         } catch (err) {
