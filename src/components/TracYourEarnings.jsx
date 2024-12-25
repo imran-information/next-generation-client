@@ -9,7 +9,7 @@ const TracYourEarnings = () => {
                 <div className="flex-1">
                     <img
                         src={featureIgm}
-                        className="w-full " />
+                        className="md:px-20 lg:px-0 w-full " />
                 </div>
                 <div className='flex-1 md:pl-20'>
                     <p className='text-lg font-medium text-[#00e29a] my-1'>Disclosure agreement buyer funding success</p>

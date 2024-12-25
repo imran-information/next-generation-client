@@ -4,6 +4,8 @@ import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { Helmet } from 'react-helmet';
+import loginLottie from '../assets/lottie/register.json'
+import Lottie from 'lottie-react';
 
 const SignIn = () => {
     const navigate = useNavigate()
@@ -44,12 +46,12 @@ const SignIn = () => {
             <Helmet>
                 <title>Next Gen | SignIn</title>
             </Helmet>
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            
+            <div className="hero-content items-center flex-col lg:flex-row-reverse">
+               
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in.
-                    </p>
+                    
+                    <Lottie className='pl-10' animationData={loginLottie}></Lottie>
                 </div>
                 <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
                     <button onClick={handleGoogleSignInUser} className="btn btn-neutral mx-7 mt-8"> <FaGoogle /> Sign in with Google</button>
@@ -65,7 +67,7 @@ const SignIn = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type={toggle ? "text" : 'password'} name='password' placeholder="password" className="input input-bordered" required /> <p onClick={() => setToggle(!toggle)} className='absolute top-14 md:left-[350px] left-[240px]  cursor-pointer' href="">{toggle ? <FaEyeSlash /> : <FaEye></FaEye>}</p>
+                            <input type={toggle ? "text" : 'password'} name='password' placeholder="password" className="input input-bordered" required /> <p onClick={() => setToggle(!toggle)} className='absolute top-14 md:left-[350px] left-[299px]  cursor-pointer' href="">{toggle ? <FaEyeSlash /> : <FaEye></FaEye>}</p>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>

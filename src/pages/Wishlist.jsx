@@ -50,9 +50,6 @@ const Wishlist = () => {
                 <title>Next Gen | Wishlist</title>
             </Helmet>
             <h2 className="text-4xl  font-bold mb-4 text-center">Wishlist</h2>
-            <p className="sm:px-96 text-center">
-                Effortlessly monitor your financial progress with a feature designed to help you track <br /> your earnings in real time as they grow.
-            </p>
             <div className="w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
                 {
                     wishlists.map((wishlist) => <WishlistCard key={wishlist._id} handleDeleteWishlist={handleDeleteWishlist} wishlist={wishlist}></WishlistCard>)}

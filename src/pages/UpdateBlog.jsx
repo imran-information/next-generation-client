@@ -68,7 +68,7 @@ const UpdateBlog = () => {
     };
 
     return (
-        <div className="py-40 min-h-screen bg-[#f5f6ff]">
+        <div className="py-40 px-5 md:px-0 min-h-screen bg-[#f5f6ff]">
             <Helmet>
                 <title>Next Gen | Update Blog</title>
             </Helmet>

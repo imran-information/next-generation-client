@@ -103,7 +103,7 @@ const FeaturedBlogs = () => {
             <Helmet>
                 <title>Next Gen | Top 10 Posts</title>
             </Helmet>
-            <div className="max-w-4xl mx-auto bg-white shadow rounded p-5">
+            <div className="md:max-w-4xl overflow-x-auto mx-auto bg-white shadow rounded p-5">
                 <h1 className="text-2xl font-bold mb-5 text-center">Top 10 Posts</h1>
                 <table className="min-w-full table-auto border-collapse border border-gray-300">
                     <thead>

@@ -13,7 +13,7 @@ const Footer = () => {
                 <li className=''><Link to='/'>Home</Link></li>
                 <li className=''><Link to='add-blog'>Add Blog</Link></li>
                 <li className=''><Link to='/all-blogs'>All blogs</Link></li>
-                <Link className="text-4xl font-bold">NextGen</Link>
+                <Link className="md:text-2xl lg:text-4xl font-bold">NextGen</Link>
                 <li className=''><Link to='featured-blogs'>Featured Blogs</Link></li>
                 <li className=''><Link to='wishlist'>Wishlist</Link></li>
                 <li className=''><Link>About us</Link></li>
@@ -21,11 +21,11 @@ const Footer = () => {
             <div className="flex justify-center gap-2 mt-7">
                 <motion.img whileHover={{ scale: 1.06 }}
                     whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='' alt="" srcSet={fb} />
-                <motion.img whileHover={{ scale: 1.06 }} 
+                <motion.img whileHover={{ scale: 1.06 }}
                     whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='' alt="" srcSet={twi} />
-                <motion.img whileHover={{ scale: 1.06 }} 
+                <motion.img whileHover={{ scale: 1.06 }}
                     whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='' alt="" srcSet={lin} />
-                <motion.img whileHover={{ scale: 1.06 }} 
+                <motion.img whileHover={{ scale: 1.06 }}
                     whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='' alt="" srcSet={ins} />
             </div>
             <aside>

@@ -56,9 +56,9 @@ const AllBlogs = () => {
                 <title>Next Gen | All Blog</title>
             </Helmet>
             <h2 className="text-4xl  font-bold mb-4 text-center">All Blogs</h2>
-            <div className="md:flex justify-around items-center w-10/12 mx-auto">
+            <div className="lg:flex justify-around items-center w-10/12 mx-auto">
                 <div className="flex-1">
-                    <div className="md:flex items-center gap-2">
+                    <div className="lg:flex items-center gap-2">
                         {/* Category */}
                         <div className="">
                             <p className="md:text-lg font-semibold">Filter By Category: </p>

@@ -4,6 +4,8 @@ import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { Helmet } from 'react-helmet';
+import registerLottie from '../assets/lottie/register.json'
+import Lottie from 'lottie-react';
 
 const SignUp = () => {
     const navigate = useNavigate()
@@ -69,10 +71,8 @@ const SignUp = () => {
             </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left ">
-                    <h1 className="text-5xl font-bold">SignUp now!</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in.
-                    </p>
+
+                    <Lottie className='pl-10' animationData={registerLottie} ></Lottie>
                 </div>
                 <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
                     <button onClick={handleGoogleSignInUser} className="btn btn-neutral mx-7 mt-8"><FaGoogle />Sign Up with Google</button>
@@ -100,7 +100,7 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type={toggle ? "text" : 'password'} name='password' placeholder="password" className="input input-bordered" required /> <p onClick={() => setToggle(!toggle)} className='absolute top-14 md:left-[350px] left-[240px]  cursor-pointer' href="">{toggle ? <FaEyeSlash /> : <FaEye></FaEye>}</p>
+                            <input type={toggle ? "text" : 'password'} name='password' placeholder="password" className="input input-bordered" required /> <p onClick={() => setToggle(!toggle)} className='absolute top-14 md:left-[350px] left-[299px]  cursor-pointer' href="">{toggle ? <FaEyeSlash /> : <FaEye></FaEye>}</p>
                             {/* <input type="password" name='password' placeholder="password" className="input input-bordered" required /> */}
                             {
                                 error?.password && <label className="label text-sm text-red-500">
