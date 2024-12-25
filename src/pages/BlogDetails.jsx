@@ -14,7 +14,7 @@ const BlogDetails = () => {
     const { user } = useAuth()
     const instance = useAxiosSecure()
 
-    console.log(comments);
+    // console.log(comments);
 
     useEffect(() => {
         // get blog 

@@ -16,7 +16,7 @@ const FeaturedBlogs = () => {
     const columnHelper = createColumnHelper();
     const instance = useAxiosSecure()
 
-    console.log(topPosts);
+    // console.log(topPosts);
 
     useEffect(() => {
         const getTopPosts = async () => {
