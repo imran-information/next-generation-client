@@ -40,6 +40,7 @@ const BlogDetails = () => {
     // comment submit DB 
     const handleCommentSubmit = async (commentText, id, author, author_photoUrl, setCommentText) => {
         if (commentText.trim()) {
+
             const newComment = {
                 blog_id: id,
                 username: user?.displayName,

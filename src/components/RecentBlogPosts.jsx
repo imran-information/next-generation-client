@@ -5,22 +5,38 @@ import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../hooks/useAxiosCecure';
+import { useQuery } from '@tanstack/react-query'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 
 const RecentBlogPosts = () => {
     const navigate = useNavigate()
     const { user } = useAuth()
     const instance = useAxiosSecure()
-    const [blogs, setBlogs] = useState([]);
+    // const [blogs, setBlogs] = useState([]);
 
-    const blogsData = async () => {
-        const { data } = await instance.get('/blogs')
-        setBlogs(data)
-    }
+    const { data: blogs, isPending } = useQuery({
+        queryKey: ['blogs'], queryFn: async () => {
+            const { data } = await instance.get('/blogs')
+            return data
+        }
+
+    })
+
+    if (isPending) return <Skeleton highlightColor="#444" baseColor='#7ac8af' count={10} />
+
+    // console.log({ data });
+
+    // const blogsData = async () => {
+    //     const { data } = await instance.get('/blogs')
+    //     setBlogs(data)
+    // }
     // console.log(blogs);
 
-    useEffect(() => {
-        blogsData()
-    }, [])
+    // useEffect(() => {
+    //     blogsData()
+    // }, [])
 
 
     // add wishlist in DB

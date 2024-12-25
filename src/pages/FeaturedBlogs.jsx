@@ -17,7 +17,6 @@ const FeaturedBlogs = () => {
     const columnHelper = createColumnHelper();
     const instance = useAxiosSecure()
 
-    // console.log(topPosts);
 
     useEffect(() => {
         const getTopPosts = async () => {
@@ -30,6 +29,7 @@ const FeaturedBlogs = () => {
         };
         getTopPosts();
     }, []);
+
     const columns = [
         columnHelper.accessor("title", {
             header: "Title",

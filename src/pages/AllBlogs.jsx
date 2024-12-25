@@ -3,26 +3,39 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-
 import BlogCard from '../components/BlogCard';
 import useAxiosSecure from '../hooks/useAxiosCecure';
 import { Helmet } from 'react-helmet';
+import { useQuery } from '@tanstack/react-query'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const AllBlogs = () => {
     const navigate = useNavigate()
     const { user } = useAuth()
     const [searchQuery, setSearchQuery] = useState("");
-    const [blogs, setBlogs] = useState([]);
+    // const [blogs, setBlogs] = useState([]);
     const [categoryFilter, setCategoryFilter] = useState('');
     const instance = useAxiosSecure()
 
-    useEffect(() => {
-        const blogsData = async () => {
+
+    const { data: blogs, isPending } = useQuery({
+        queryKey: ['all-blogs', searchQuery, categoryFilter], queryFn: async () => {
             const { data } = await instance.get(`/all-blogs?category=${categoryFilter}&search=${searchQuery}`)
-            setBlogs(data)
+            return data
         }
-        blogsData()
-    }, [searchQuery, categoryFilter])
+
+    })
+
+    if (isPending) return <Skeleton highlightColor="#444" baseColor='#7ac8af' count={10} />
+
+    // useEffect(() => {
+    //     const blogsData = async () => {
+    //         const { data } = await instance.get(`/all-blogs?category=${categoryFilter}&search=${searchQuery}`)
+    //         setBlogs(data)
+    //     }
+    //     blogsData()
+    // }, [searchQuery, categoryFilter])
 
     // add wishlist in DB
     const handleWishlist = async (id, title, imageUrl, category, shortDescription, longDescription) => {
@@ -104,6 +117,7 @@ const AllBlogs = () => {
             </div>
 
             <div className="w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+
                 {
                     blogs.map((blog) => <BlogCard key={blog._id} handleWishlist={handleWishlist} blog={blog}></BlogCard>)}
             </div>
