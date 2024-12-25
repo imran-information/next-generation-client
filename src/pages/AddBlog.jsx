@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../hooks/useAxiosCecure';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const AddBlog = () => {
     const { user } = useAuth()

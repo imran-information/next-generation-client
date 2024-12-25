@@ -4,7 +4,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import WishlistCard from '../components/WishlistCard';
 import useAxiosSecure from '../hooks/useAxiosCecure';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 const Wishlist = () => {

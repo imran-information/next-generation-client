@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import registerLottie from '../assets/lottie/register.json'
 import Lottie from 'lottie-react';
 

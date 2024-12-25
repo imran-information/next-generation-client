@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import loginLottie from '../assets/lottie/register.json'
 import Lottie from 'lottie-react';
 
@@ -46,11 +46,11 @@ const SignIn = () => {
             <Helmet>
                 <title>Next Gen | SignIn</title>
             </Helmet>
-            
+
             <div className="hero-content items-center flex-col lg:flex-row-reverse">
-               
+
                 <div className="text-center lg:text-left">
-                    
+
                     <Lottie className='pl-10' animationData={loginLottie}></Lottie>
                 </div>
                 <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">

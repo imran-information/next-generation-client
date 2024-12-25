@@ -8,7 +8,7 @@ import {
 import { format } from "date-fns";
 import moment from 'moment';
 import useAxiosSecure from '../hooks/useAxiosCecure';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -54,6 +54,7 @@ const FeaturedBlogs = () => {
 
             cell: (info) => {
                 const date = new Date(info.getValue());
+                console.log(date);
                 return date.toLocaleDateString();
             },
         }),

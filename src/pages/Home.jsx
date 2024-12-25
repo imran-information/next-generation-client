@@ -4,7 +4,7 @@ import RecentBlogPosts from '../components/RecentBlogPosts';
 import BestFeatureEver from '../components/BestFeatureEver';
 import TracYourEarnings from '../components/TracYourEarnings';
 import Newsletter from '../components/Newsletter';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (

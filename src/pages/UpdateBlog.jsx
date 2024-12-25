@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../hooks/useAxiosCecure';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 const UpdateBlog = () => {

@@ -6,7 +6,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../hooks/useAxiosCecure';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const BlogDetails = () => {
     const [blog, setBlog] = useState({})
