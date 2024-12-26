@@ -43,21 +43,18 @@ const FeaturedBlogs = () => {
             header: "Category",
             cell: (info) => info.getValue(),
         }),
-        columnHelper.accessor("wordCount", {
+        columnHelper.accessor((row) => row.longDescription.length, {
             header: "Word Count",
-            cell: (info) => info.getValue(),
-        }),
-        columnHelper.accessor("date", {
-            header: "Date",
-            // cell: (info) => format(new Date(info.getValue()),"P")
-            // cell: (info) => moment(new Date(info.getValue()).format("YYYY-MM-DD")),
+            cell: (info) => info.getValue.length(),
 
-            cell: (info) => {
-                const date = new Date(info.getValue());
-                console.log(date);
-                return date.toLocaleDateString();
-            },
+
         }),
+        columnHelper.accessor((row) => new Date(row.date).toLocaleDateString(), {
+            header: "Date",
+            cell: (info) => info.getValue(),
+
+        }),
+
     ];
 
 
@@ -66,7 +63,6 @@ const FeaturedBlogs = () => {
         columns,
         getCoreRowModel: getCoreRowModel(),
     });
-
 
 
     return (
@@ -89,7 +85,7 @@ const FeaturedBlogs = () => {
         //                         <td className="border border-gray-300 px-4 py-2">{post.title}</td>
         //                         <td className="border border-gray-300 px-4 py-2">{post.author}</td>
         //                         <td className="border border-gray-300 px-4 py-2">{post.category}</td>
-        //                         <td className="border border-gray-300 px-4 py-2">{post.wordCount}</td>
+        //                         <td className="border border-gray-300 px-4 py-2">{post.longDescription.length}</td>
         //                         <td className="border border-gray-300 px-4 py-2">
         //                             {new Date(post.date).toLocaleDateString()}
         //                         </td>
