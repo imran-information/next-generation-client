@@ -20,13 +20,13 @@ const Footer = () => {
             </div>
             <div className="flex justify-center gap-2 mt-7">
                 <motion.img whileHover={{ scale: 1.06 }}
-                    whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='' alt="" srcSet={fb} />
+                    whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='https://www.facebook.com/imran.informations' alt="" srcSet={fb} />
                 <motion.img whileHover={{ scale: 1.06 }}
-                    whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='' alt="" srcSet={twi} />
+                    whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='' alt="https://x.com/imran_inf" srcSet={twi} />
                 <motion.img whileHover={{ scale: 1.06 }}
-                    whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='' alt="" srcSet={lin} />
+                    whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='' alt="https://www.linkedin.com/in/imran-information/" srcSet={lin} />
                 <motion.img whileHover={{ scale: 1.06 }}
-                    whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='' alt="" srcSet={ins} />
+                    whileTap={{ scale: 0.95 }} className='w-10 border rounded-full p-2 hover:border-none hover:cursor-pointer  hover:bg-purple-700' src='https://www.instagram.com/imran.informations/' alt="" srcSet={ins} />
             </div>
             <aside>
                 <p className='p-5'>Copyright © {new Date().getFullYear()} <Link className='text-purple-500' to='http://localhost:5174/'> DESING</Link> - All right reserved by NextGen</p>
