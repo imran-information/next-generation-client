@@ -5,6 +5,7 @@ import BestFeatureEver from '../components/BestFeatureEver';
 import TracYourEarnings from '../components/TracYourEarnings';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
+import FeaturedBlogs from '../components/FeaturedBlogs';
 
 const Home = () => {
     return (
@@ -14,11 +15,12 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <RecentBlogPosts></RecentBlogPosts>
+            <FeaturedBlogs />
             <TracYourEarnings></TracYourEarnings>
             <BestFeatureEver></BestFeatureEver>
             <Newsletter></Newsletter>
+
             {/* <Banner />
-            <FeaturedProducts />
             <RecentProducts />
             <SalesPromotion />
             <RecentBlogPosts />

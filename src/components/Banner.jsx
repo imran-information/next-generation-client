@@ -67,8 +67,6 @@ const Banner = () => {
                                     backgroundColor: '#00e29a',
                                     color: 'white',
                                     borderRadius: '50px',
-                                    display: { xs: 'block', sm: 'none', md: 'block' },
-                                    ml: { xs: 'auto', sm: 0 },
                                     px: 3,
                                     py: 1,
                                     fontSize: '1rem',
@@ -92,9 +90,7 @@ const Banner = () => {
                             <Button variant="Outlined"
                                 sx={{
                                     color: '#00e29a',
-                                    borderRadius: '50px',
-                                    display: { xs: 'block', sm: 'none', md: 'block' },
-                                    ml: { xs: 'auto', sm: 0 },
+                                    borderRadius: '50px', 
                                     px: 3,
                                     py: 0.9,
                                     fontSize: '1rem',
@@ -124,7 +120,7 @@ const Banner = () => {
             </div>
 
             {/* Slider Navigation */}
-            <div className="absolute top-1/2 left-0 right-0 flex justify-between">
+            <div className="absolute top-1/2 left-0 right-0 flex justify-between ">
                 <button
                     onClick={handlePrevImage}
                     className="text-white bg-[#00e29a] p-3 rounded-full hover:bg-[#00c288] transition-all"

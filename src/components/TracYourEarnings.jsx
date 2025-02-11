@@ -4,7 +4,7 @@ import * as motion from "motion/react-client";
 
 const TracYourEarnings = () => {
     return (
-        <div className="hero bg-[#f5f6ff] min-h-min mb-10">
+        <div className="hero bg-bg min-h-min mb-10">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="flex-1">
                     <img
