@@ -6,13 +6,14 @@ export default {
   ],
   theme: {
     fontFamily: {
-      'Roboto': [
-        '"Roboto", serif',
-      ],
-
+      poppins: ["Poppins", "serif"],
 
     },
     extend: {
+      colors: {
+        primary: '#8053f6',
+        secondary: '#00e29a',
+      }
       // backgroundImage: {
       //   'recent-blogs': "url('/src/assets/home/Simple Shiny (2).svg')",
 

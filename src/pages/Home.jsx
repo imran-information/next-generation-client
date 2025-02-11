@@ -17,6 +17,15 @@ const Home = () => {
             <TracYourEarnings></TracYourEarnings>
             <BestFeatureEver></BestFeatureEver>
             <Newsletter></Newsletter>
+            {/* <Banner />
+            <FeaturedProducts />
+            <RecentProducts />
+            <SalesPromotion />
+            <RecentBlogPosts />
+            <TracYourEarnings />
+            <BestFeatureEver />
+            <Reviews />
+            <Newsletter /> */}
         </div>
     );
 };

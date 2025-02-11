@@ -5,7 +5,7 @@ import Footer from '../components/shared/Footer';
 
 const Main = () => {
     return (
-        <div className="">
+        <div className="font-poppins">
             <Navbar></Navbar>
             <div className="min-h-[calc(100vh-261px)]">
                 <Outlet></Outlet>
