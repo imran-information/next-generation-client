@@ -6,6 +6,7 @@ import TracYourEarnings from '../components/TracYourEarnings';
 import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 import FeaturedBlogs from '../components/FeaturedBlogs';
+import SalesPromotion from '../components/SalesPromotion/SalesPromotion';
 
 const Home = () => {
     return (
@@ -17,17 +18,12 @@ const Home = () => {
             <RecentBlogPosts></RecentBlogPosts>
             <FeaturedBlogs />
             <TracYourEarnings></TracYourEarnings>
+            <SalesPromotion />
             <BestFeatureEver></BestFeatureEver>
             <Newsletter></Newsletter>
 
-            {/* <Banner />
-            <RecentProducts />
-            <SalesPromotion />
-            <RecentBlogPosts />
-            <TracYourEarnings />
-            <BestFeatureEver />
-            <Reviews />
-            <Newsletter /> */}
+            {/*    
+            <Reviews />  */}
         </div>
     );
 };

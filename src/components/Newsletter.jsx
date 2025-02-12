@@ -22,7 +22,7 @@ const Newsletter = () => {
     };
 
     return (
-        <div className="p-8 py-20 bg-[#f5f6ff]">
+        <div className="p-8 py-20 bg-[#f8fafc]">
             <h2 className="text-4xl font-bold mb-4 text-gray-800 text-center">Newsletter</h2>
             <p className="md:px-0 lg:px-96  mb-6 text-center">
                 Effortlessly monitor your financial progress with a feature designed to help you track <br /> your earnings in real time as they grow.
