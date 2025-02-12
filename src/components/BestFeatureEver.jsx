@@ -18,7 +18,7 @@ const BestFeatureEver = () => {
                     whileTap={{ scale: 0.95 }}
                     className="bg-white rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 ease-in-out"
                 >
-                    <div className="flex items-center justify-center w-12 h-12 mx-auto bg-purple-500 rounded-full mb-4">
+                    <div className="flex items-center justify-center w-12 h-12 mx-auto bg-primary rounded-full mb-4">
                         <span className="text-white text-xl">⚙️</span>
                     </div>
                     <h3 className="text-lg font-semibold text-gray-800">Advanced Options</h3>
@@ -27,10 +27,10 @@ const BestFeatureEver = () => {
                     </p>
                     <a
                         href="#"
-                        className="relative inline-block text-purple-500 font-medium group"
+                        className="relative inline-block text-primary font-medium group"
                     >
                         READ MORE
-                        <span className="absolute left-0 bottom-0 block w-0 h-[2px] bg-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute left-0 bottom-0 block w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </motion.div>
 
@@ -40,7 +40,7 @@ const BestFeatureEver = () => {
                     whileTap={{ scale: 0.95 }}
                     className="bg-white rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 ease-in-out"
                 >
-                    <div className="flex items-center justify-center w-12 h-12 mx-auto bg-purple-500 rounded-full mb-4">
+                    <div className="flex items-center justify-center w-12 h-12 mx-auto bg-primary rounded-full mb-4">
                         <span className="text-white text-xl">🎨</span>
                     </div>
                     <h3 className="text-lg font-semibold text-gray-800">Perfect Design</h3>
@@ -49,10 +49,10 @@ const BestFeatureEver = () => {
                     </p>
                     <a
                         href="#"
-                        className="relative inline-block text-purple-500 font-medium group"
+                        className="relative inline-block text-primary font-medium group"
                     >
                         READ MORE
-                        <span className="absolute left-0 bottom-0 block w-0 h-[2px] bg-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute left-0 bottom-0 block w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </motion.div>
 
@@ -62,7 +62,7 @@ const BestFeatureEver = () => {
                     whileTap={{ scale: 0.95 }}
                     className="bg-white rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 ease-in-out"
                 >
-                    <div className="flex items-center justify-center w-12 h-12 mx-auto bg-purple-500 rounded-full mb-4">
+                    <div className="flex items-center justify-center w-12 h-12 mx-auto bg-primary rounded-full mb-4">
                         <span className="text-white text-xl">📖</span>
                     </div>
                     <h3 className="text-lg font-semibold text-gray-800">Documentation</h3>
@@ -71,10 +71,10 @@ const BestFeatureEver = () => {
                     </p>
                     <a
                         href="#"
-                        className="relative inline-block text-purple-500 font-medium group"
+                        className="relative inline-block text-primary font-medium group"
                     >
                         READ MORE
-                        <span className="absolute left-0 bottom-0 block w-0 h-[2px] bg-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute left-0 bottom-0 block w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </motion.div>
 
@@ -84,7 +84,7 @@ const BestFeatureEver = () => {
                     whileTap={{ scale: 0.95 }}
                     className="bg-white rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 ease-in-out"
                 >
-                    <div className="flex items-center justify-center w-12 h-12 mx-auto bg-purple-500 rounded-full mb-4">
+                    <div className="flex items-center justify-center w-12 h-12 mx-auto bg-primary rounded-full mb-4">
                         <span className="text-white text-xl">✂️</span>
                     </div>
                     <h3 className="text-lg font-semibold text-gray-800">Reasonable Pricing</h3>
@@ -93,10 +93,10 @@ const BestFeatureEver = () => {
                     </p>
                     <a
                         href="#"
-                        className="relative inline-block text-purple-500 font-medium group"
+                        className="relative inline-block text-primary font-medium group"
                     >
                         READ MORE
-                        <span className="absolute left-0 bottom-0 block w-0 h-[2px] bg-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute left-0 bottom-0 block w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </motion.div>
             </div>

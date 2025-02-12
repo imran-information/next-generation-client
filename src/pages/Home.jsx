@@ -7,6 +7,7 @@ import Newsletter from '../components/Newsletter';
 import { Helmet } from 'react-helmet-async';
 import FeaturedBlogs from '../components/FeaturedBlogs';
 import SalesPromotion from '../components/SalesPromotion/SalesPromotion';
+import ReviewsSection from '../components/ReviewsSection';
 
 const Home = () => {
     return (
@@ -21,9 +22,8 @@ const Home = () => {
             <SalesPromotion />
             <BestFeatureEver></BestFeatureEver>
             <Newsletter></Newsletter>
+            <ReviewsSection  />
 
-            {/*    
-            <Reviews />  */}
         </div>
     );
 };
