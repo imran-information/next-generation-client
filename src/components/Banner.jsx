@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
+import { ArrowBack, ArrowForward } from '@mui/icons-material';
 
 const Banner = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -90,7 +91,7 @@ const Banner = () => {
                             <Button variant="Outlined"
                                 sx={{
                                     color: '#00e29a',
-                                    borderRadius: '50px', 
+                                    borderRadius: '50px',
                                     px: 3,
                                     py: 0.9,
                                     fontSize: '1rem',
@@ -120,19 +121,40 @@ const Banner = () => {
             </div>
 
             {/* Slider Navigation */}
-            <div className="absolute top-1/2 left-0 right-0 flex justify-between ">
-                <button
+            <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center px-4">
+                <IconButton
                     onClick={handlePrevImage}
-                    className="text-white bg-[#00e29a] p-3 rounded-full hover:bg-[#00c288] transition-all"
+                    sx={{
+                        backgroundColor: '#00e29a',
+                        color: 'white',
+                        '&:hover': {
+                            backgroundColor: '#00c288',
+                        },
+                        padding: 2,
+                        borderRadius: '50%',
+                        transition: 'all 0.3s ease',
+                    }}
+                    aria-label="Previous Image"
                 >
-                    &lt;
-                </button>
-                <button
+                    <ArrowBack />
+                </IconButton>
+
+                <IconButton
                     onClick={handleNextImage}
-                    className="text-white bg-[#00e29a] p-3 rounded-full hover:bg-[#00c288] transition-all"
+                    sx={{
+                        backgroundColor: '#00e29a',
+                        color: 'white',
+                        '&:hover': {
+                            backgroundColor: '#00c288',
+                        },
+                        padding: 2,
+                        borderRadius: '50%',
+                        transition: 'all 0.3s ease',
+                    }}
+                    aria-label="Next Image"
                 >
-                    &gt;
-                </button>
+                    <ArrowForward />
+                </IconButton>
             </div>
         </div >
     );

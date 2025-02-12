@@ -57,7 +57,7 @@ const RecentBlogPosts = () => {
     return (
         <>
             <div className="py-20 bg-bg px-8 md:px-0">
-                <SectionTitle heading={'Recent Blogs'} subHeading={'Effortlessly monitor your financial progress with a feature designed to help you track  your earnings in real time as they grow.'} />
+                <SectionTitle heading='Recent Blog Posts' subHeading={'Effortlessly monitor your financial progress with a feature designed to help you track your earnings in real time as they grow.'} />
                 <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     {
                         blogs.map((blog) => <BlogCard key={blog._id} handleWishlist={handleWishlist} blog={blog}></BlogCard>)}
