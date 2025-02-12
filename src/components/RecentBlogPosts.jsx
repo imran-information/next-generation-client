@@ -9,6 +9,7 @@ import { useQuery } from '@tanstack/react-query'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import SectionTitle from './shared/SectionTitle';
+import LoadingSpinner from './LoadingSpinner';
 
 
 const RecentBlogPosts = () => {
@@ -25,7 +26,7 @@ const RecentBlogPosts = () => {
 
     })
 
-    if (isPending) return <Skeleton highlightColor="#444" baseColor='#7ac8af' count={10} />
+    if (isPending) return <LoadingSpinner />
 
 
     // add wishlist in DB

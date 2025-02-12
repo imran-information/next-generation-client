@@ -3,6 +3,7 @@ import FeaturedBlogsCard from "./FeaturedBlogsCard/FeaturedBlogsCard";
 import SectionTitle from "./shared/SectionTitle";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import LoadingSpinner from "./LoadingSpinner";
 
 const FeaturedBlogs = () => {
     const { data: blogs = [], isPending, error } = useQuery({
@@ -18,7 +19,7 @@ const FeaturedBlogs = () => {
         },
     });
 
-    if (isPending) return <div>Loading...</div>;
+    if (isPending) return <LoadingSpinner />;
     if (blogs.length === 0) return <div>No blogs found.</div>;
 
     return (

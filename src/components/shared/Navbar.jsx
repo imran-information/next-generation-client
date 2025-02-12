@@ -112,10 +112,15 @@ const Navbar = () => {
                             }}
                         >
                             <IconButton onClick={handleMenuOpen} color="inherit">
-                                <Avatar className='border-2 border-secondary' src={user?.photoURL || '/default-avatar.png'}>
+                                <Avatar
+                                    className="border-2 border-secondary"
+                                    src={user?.photoURL || '/default-avatar.png'}
+                                    style={{ width: '40px', height: '40px', borderRadius: '50%' }}
+                                >
                                     {!user?.photoURL && user?.displayName?.charAt(0)}
                                 </Avatar>
                             </IconButton>
+
                             <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
                                 <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
                                 <MenuItem onClick={handleSignOut}>Logout</MenuItem>

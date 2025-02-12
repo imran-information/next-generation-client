@@ -10,8 +10,8 @@ const BlogCard = ({ blog, handleWishlist }) => {
 
     return (
         <motion.div
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={{ scale: 1.05 }} // Card hover motion (scale)
+            transition={{ duration: 0.3 }}
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all h-full flex flex-col"
         >
             {/* Image Preview */}
