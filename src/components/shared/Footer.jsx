@@ -4,13 +4,13 @@ import fb from '../../assets/footer/fb.png';
 import ins from '../../assets/footer/ins.png';
 import lin from '../../assets/footer/lin.png';
 import twi from '../../assets/footer/twi.png';
-import { Box, Typography, IconButton } from '@mui/material'; 
+import { Box, Typography, IconButton } from '@mui/material';
 
 const Footer = () => {
     return (
-        <footer className="bg-[#292b2c] text-white text-center">
+        <footer className="bg-neutral-800 text-white text-center">
             <Box className="flex flex-col md:flex-row justify-center items-center py-8 gap-10 border-b">
-                <Box component="ul" className="list-none flex flex-col md:flex-row gap-6">
+                <Box data-aos="zoom-in" data-aos-duration="1500" component="ul" className="list-none flex flex-col md:flex-row gap-6">
                     <li>
                         <Link to="/" className="relative hover:text-primary transition duration-300">
                             Home
@@ -74,7 +74,7 @@ const Footer = () => {
                 ))}
             </Box>
 
-            <Box>
+            <Box >
                 <Typography variant="body2" className="p-5">
                     Copyright © {new Date().getFullYear()}
                     <Link to="https://remarkable-cascaron-70f493.netlify.app" className="text-purple-500">

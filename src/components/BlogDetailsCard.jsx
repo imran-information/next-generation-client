@@ -1,110 +1,205 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
+import { Button, Card, CardContent, Typography, Avatar, TextField, Box } from '@mui/material';
 
-
-const BlogDetailsCard = ({ blog, handleCommentSubmit, comments }) => {
+const BlogDetailsCard = ({ blog, handleWishlist, handleCommentSubmit, comments }) => {
     const navigate = useNavigate();
-    const { user } = useAuth()
+    const { user } = useAuth();
     const [commentText, setCommentText] = useState("");
     const { _id, title, imageUrl, category, shortDescription, longDescription, date, author_email, author, author_photoUrl } = blog || {};
-
     const isBlogOwner = author_email === user?.email;
 
-
-
     return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition">
-            
+        <Card className='dark:bg-neutral-800 dark:text-white' sx={{ backgroundColor: '#f5f6ff', borderRadius: 3, boxShadow: 3, overflow: 'hidden' }}>
+            {/* Blog Image */}
             <img
-                className="w-full h-96 object-cover"
-                src={imageUrl || "https://img.freepik.com/free-photo/red-light-round-podium-black-background-mock-up_43614-950.jpg?t=st=1734937221~exp=1734940821~hmac=9122502d0978c14175c28629bbfcfa5aca68dd1d7202605369f9cb01bf16fc4e&w=826"}
+                src={imageUrl || "https://img.freepik.com/free-photo/red-light-round-podium-black-background-mock-up_43614-950.jpg"}
                 alt={title}
+                style={{ width: '100%', height: '400px', objectFit: 'cover' }}
             />
-            <div className="p-4">
-                <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
-                <p className="text-gray-600 py-1 text-sm">By: {author}</p>
-                <div className="author-info flex items-center my-2">
-                    <img
-                        className="w-10 h-10 rounded-full"
-                        src={author_photoUrl}
-                        alt={author}
-                    />
-                </div>
-                <p className="text-gray-500 pb-2 text-xs">{new Date(date).toLocaleDateString()}</p>
-                <span className="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded-full">
+
+            <CardContent>
+                {/* Title & Author */}
+                <Typography className='dark:text-gray-300' variant="h4" fontWeight="bold" color="#333">{title}</Typography>
+                <Box display="flex" alignItems="center" mt={1} mb={2}>
+                    <Avatar src={author_photoUrl} alt={author} sx={{ width: 40, height: 40, mr: 1 }} />
+                    <Typography className='dark:text-gray-300' variant="subtitle1" color="textSecondary">
+                        {author} | {new Date(date).toLocaleDateString()}
+                    </Typography>
+                </Box>
+
+                {/* Category Badge */}
+                <Box className='dark:bg-secondary' component="span" sx={{ background: '#8053f6', color: 'white', px: 2, py: 0.5, borderRadius: 5, fontSize: 12 }}>
                     {category}
-                </span>
-                <p className="text-gray-700 mt-2 text-sm">
-                    {shortDescription}
-                </p>
-                <p className="text-gray-700 mt-2 text-sm">
-                    {longDescription}
-                </p>
-                <div className="mt-4 flex justify-between items-center">
-                    <button
+                </Box>
+
+                {/* Blog Content */}
+                <Typography className='dark:text-gray-300' variant="body1" color="textSecondary" mt={2}>{shortDescription}</Typography>
+                <Typography className='dark:text-gray-300' variant="body1" color="textSecondary" mt={2}>{longDescription}</Typography>
+
+                {/* Action Buttons */}
+                <Box mt={4} display="flex" justifyContent="space-between">
+                    <Button
+                        sx={{
+                            backgroundColor: '#00e29a',
+                            color: 'white',
+                            borderRadius: '50px',
+                            px: 3,
+                            py: 1,
+                            fontSize: '1rem',
+                            fontWeight: 'bold',
+                            textTransform: 'none',
+                            transition: 'all 0.3s ease-in-out',
+                            boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
+                            '&:hover': {
+                                backgroundColor: '#00c288',
+                                boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
+                                transform: 'translateY(-2px)',
+                            },
+                            '&:active': {
+                                transform: 'translateY(0px)',
+                                boxShadow: '0px 3px 8px rgba(0, 226, 154, 0.3)',
+                            },
+                        }}
                         onClick={() => navigate('/all-blogs')}
-                        className="bg-purple-500 text-white hover:bg-purple-600 transition px-3 py-1 rounded"
                     >
-                        Read More
-                    </button>
-                    {isBlogOwner && (
-                        <button
+                        More Blogs
+                    </Button>
+
+                    {isBlogOwner ? (
+                        <Button
+                            sx={{
+                                backgroundColor: '#00e29a',
+                                color: 'white',
+                                borderRadius: '50px',
+                                px: 3,
+                                py: 1,
+                                fontSize: '1rem',
+                                fontWeight: 'bold',
+                                textTransform: 'none',
+                                transition: 'all 0.3s ease-in-out',
+                                boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
+                                '&:hover': {
+                                    backgroundColor: '#00c288',
+                                    boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
+                                    transform: 'translateY(-2px)',
+                                },
+                                '&:active': {
+                                    transform: 'translateY(0px)',
+                                    boxShadow: '0px 3px 8px rgba(0, 226, 154, 0.3)',
+                                },
+                            }}
                             onClick={() => navigate(`/update-blog/${blog._id}`)}
-                            className=" bg-[#00e29a] hover:bg-[#25f5b3] text-white px-3 py-1 rounded "
                         >
                             Update
-                        </button>
-                    )}
-                </div>
-
-                {/* comments  */}
-                <div className="comments-section mt-8">
-                    <h2 className="text-2xl font-bold">Comments</h2>
-                    {isBlogOwner ? (
-                        <p className="text-gray-600 mt-4">Cannot comment on your own blog.</p>
+                        </Button>
                     ) : (
-                        <div className="comment-input mt-4">
-                            <textarea
-                                className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        <Button
+                            variant="outlined"
+                            sx={{
+                                color: '#00e29a',
+                                borderRadius: '50px',
+                                px: 3,
+                                py: 0.9,
+                                fontSize: '1rem',
+                                fontWeight: 'bold',
+                                textTransform: 'none',
+                                border: '2px solid #00e29a',
+                                transition: 'all 0.3s ease-in-out',
+                                boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
+                                '&:hover': {
+                                    backgroundColor: '#00c288',
+                                    boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
+                                    transform: 'translateY(-2px)',
+                                    color: 'white',
+                                },
+                                '&:active': {
+                                    transform: 'translateY(0px)',
+                                    boxShadow: '0px 3px 8px rgba(0, 226, 154, 0.3)',
+                                },
+                            }}
+                            onClick={() => handleWishlist(_id, title, imageUrl, category, shortDescription, longDescription)}
+                        >
+                            Add to Wishlist
+                        </Button>
+                    )}
+                </Box>
+
+                {/* Comments Section */}
+                <Box mt={6}>
+                    <Typography variant="h5" fontWeight="bold">Comments</Typography>
+                    {!isBlogOwner && (
+                        <Box mt={2}>
+                            <TextField
+                                fullWidth
+                                multiline
+                                rows={3}
+                                variant="outlined"
+                                placeholder="Write your comment..."
                                 value={commentText}
                                 onChange={(e) => setCommentText(e.target.value)}
-                                placeholder="Write your comment here..."
-                            ></textarea>
-                            <button
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        '& fieldset': { borderColor: '#ccc' }, // Default border color
+                                        '&:hover fieldset': { borderColor: '#8053f6' }, // Hover color
+                                        '&.Mui-focused fieldset': { borderColor: '#8053f6', borderWidth: 2 }, // Focus color
+                                    },
+                                    '& .MuiOutlinedInput-input': {
+                                        color: '#333', // Text color
+                                    },
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: '#8053f6', // Label color when focused
+                                    },
+                                }}
+                            />
+                            <Button
+                                sx={{
+                                    mt: 2,
+                                    color: '#00e29a',
+                                    borderRadius: '50px',
+                                    px: 3,
+                                    py: 0.9,
+                                    fontSize: '1rem',
+                                    fontWeight: 'bold',
+                                    textTransform: 'none',
+                                    border: '2px solid #00e29a',
+                                    transition: 'all 0.3s ease-in-out',
+                                    boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
+                                    '&:hover': {
+                                        backgroundColor: '#00c288',
+                                        boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
+                                        transform: 'translateY(-2px)',
+                                        color: 'white',
+                                    },
+                                    '&:active': {
+                                        transform: 'translateY(0px)',
+                                        boxShadow: '0px 3px 8px rgba(0, 226, 154, 0.3)',
+                                    },
+                                }}
                                 onClick={() => handleCommentSubmit(commentText, _id, author, author_photoUrl, setCommentText)}
-                                className="bg-purple-500 text-white hover:bg-purple-600 px-4 py-2 rounded mt-2"
                             >
                                 Submit Comment
-                            </button>
-                        </div>
+                            </Button>
+                        </Box>
                     )}
 
-                    {/* Show the all comments */}
-                    <div className="comment-list mt-6 ">
-                        {comments.map((comment, ind) => (
-                            <div key={ind} className="comment mb-4 p-4 border rounded">
-                                <div className="comment-header flex items-center">
-                                    <img
-                                        className="w-8 h-8 rounded-full"
-                                        src={comment.profilePicture}
-                                        alt={comment.username}
-                                    />
-                                    <p className="ml-2 font-bold">{comment.username}</p>
-                                </div>
-                                <p className="text-gray-700 mt-2">{comment.commentText}</p>
-                                <p className="text-gray-500 text-xs mt-1">
-                                    {new Date(comment.createdAt).toLocaleDateString()}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div >
+                    {/* Comments List */}
+                    <Box mt={4}>
+                        {comments.length > 0 ? comments.map((comment, ind) => (
+                            <Box className='dark:text-gray-300 dark:bg-neutral-900' key={ind} p={2} borderRadius={2} bgcolor="white" boxShadow={1} mb={2}>
+                                <Box display="flex" alignItems="center">
+                                    <Avatar src={comment.profilePicture} sx={{ width: 32, height: 32, mr: 1 }} />
+                                    <Typography fontWeight="bold">{comment.username}</Typography>
+                                </Box>
+                                <Typography className='dark:text-gray-300' variant="caption" color="gray">{new Date(comment.createdAt).toLocaleDateString()}</Typography>
+                                <Typography className='dark:text-gray-300' mt={1} color="textSecondary">{comment.commentText}</Typography>
+                            </Box>
+                        )) : <Typography className='dark:text-gray-300' variant="h6" color="textSecondary">No comments yet</Typography>}
+                    </Box>
+                </Box>
+            </CardContent >
+        </Card >
     );
 };
 

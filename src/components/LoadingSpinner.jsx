@@ -1,14 +1,13 @@
 const LoadingSpinner = () => {
     return (
-        <div className='flex items-center justify-center w-full min-h-[calc(100vh-305px)]' style={{ backgroundColor: '#f5f6ff' }}>
+        <div className='flex items-center justify-center w-full min-h-[calc(100vh-305px)] dark:bg-neutral-900 bg-bg' >
             <div
                 aria-label='Loading...'
                 role='status'
                 className='flex items-center space-x-2'
             >
                 <svg
-                    className='h-20 w-20 animate-spin'
-                    style={{ stroke: '#8053f6' }} // Primary color for the spinner
+                    className='h-20 w-20 animate-spin  stroke-primary dark:stroke-secondary'
                     viewBox='0 0 256 256'
                 >
                     <line
@@ -84,7 +83,7 @@ const LoadingSpinner = () => {
                         strokeWidth='24'
                     ></line>
                 </svg>
-                <span className='text-4xl font-medium' style={{ color: '#333' }}>Loading...</span> {/* Text color */}
+                <span className='text-4xl font-medium dark:text-secondary text-primary'  >Loading...</span> {/* Text color */}
             </div>
         </div>
     )

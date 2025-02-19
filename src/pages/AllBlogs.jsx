@@ -61,22 +61,22 @@ const AllBlogs = () => {
     };
 
     return (
-        <div className="p-8 py-32 min-h-screen bg-[#f5f6ff]">
+        <div className="p-8 py-32 min-h-screen bg-bg dark:bg-neutral-900">
             <Helmet>
                 <title>Next Gen | All Blog</title>
             </Helmet>
             <SectionTitle heading="All Blogs" subHeading="Explore all the blogs here" />
-            <div className="lg:flex justify-between items-center w-10/12 mx-auto mb-8">
+            <div data-aos="zoom-in" data-aos-duration="1500" className="lg:flex justify-between items-center container mx-auto mb-8">
                 <div className="flex-1">
-                    <div className="flex items-center gap-2">
+                    <div className=" flex items-center gap-2   text-center w-full">
                         {/* Category Filter */}
-                        <p className="md:text-lg font-semibold">Filter By Category:</p>
+                        <p className="md:text-lg font-semibold dark:text-white">Filter By Category:</p>
                         <select
                             id="category"
                             name="category"
                             value={categoryFilter}
                             onChange={(e) => setCategoryFilter(e.target.value)}
-                            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                            className="px-4 py-2 border bg-white dark:bg-neutral-800 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary "
                         >
                             <option value="">Select a category</option>
                             <option value="Technology">Technology</option>
@@ -91,12 +91,12 @@ const AllBlogs = () => {
                 {/* Sort By Dropdown */}
                 <div className="flex-1">
                     <div className="flex items-center gap-3">
-                        <label htmlFor="sortOption" className="font-semibold">Sort By Date:</label>
+                        <label htmlFor="sortOption" className="font-semibold dark:text-white">Sort By Date:</label>
                         <select
                             id="sortOption"
                             value={sortOption}
                             onChange={(e) => setSortOption(e.target.value)}
-                            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                            className="px-4 py-2 border bg-white dark:bg-neutral-800 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary"
                         >
                             <option value="">Select</option>
                             <option value="asc"> Old to New</option>
@@ -112,7 +112,7 @@ const AllBlogs = () => {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Search..."
-                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-full px-4 py-2 bg-white dark:bg-neutral-800 dark:text-gray-300 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary"
                     />
                 </div>
             </div>
@@ -120,18 +120,18 @@ const AllBlogs = () => {
             {/* Blog Cards */}
             {
                 blogs && blogs.length > 0 ? (
-                    <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
+                    <div data-aos="zoom-in" data-aos-duration="1500" className="container mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-10">
                         {blogs.map((blog) => (
                             <BlogCard handleWishlist={handleWishlist} blog={blog} key={blog._id} />
                         ))}
                     </div>
                 ) : (
-                    <h1 className="text-primary container mx-auto">Sorry, No Blogs Found..!</h1>
+                    <h1 className="text-primary dark:text-secondary container mx-auto">Sorry, No Blogs Found..!</h1>
                 )
             }
 
             {/* Pagination */}
-            < div className="flex justify-center mt-8">
+            < div className="flex justify-center items-center mt-8">
                 <Button
                     variant="outlined"
                     sx={{
@@ -161,7 +161,7 @@ const AllBlogs = () => {
                 >
                     Previous
                 </Button>
-                <span className="mx-4 text-xl">{currentPage}</span>
+                <span className="mx-4 text-xl dark:text-white">{currentPage}</span>
                 <Button
                     variant="outlined"
                     sx={{

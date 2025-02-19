@@ -23,7 +23,7 @@ export default function FeaturedBlogsCard({ blog }) {
             transition={{ duration: 0.3 }}
             sx={{ marginBottom: 4 }}
         >
-            <Card
+            <Card className='bg-white dark:bg-neutral-900  rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all h-full flex flex-col'
                 sx={{
                     maxWidth: 400,
                     display: 'flex',
@@ -42,16 +42,22 @@ export default function FeaturedBlogsCard({ blog }) {
                 }}
             >
                 {/* Header */}
-                <CardHeader
+                <CardHeader className='dark:text-gray-300'
                     avatar={<Avatar aria-label="author" src={author_photoUrl} />}
                     action={
-                        <IconButton aria-label="settings">
+                        <IconButton className='dark:text-secondary' aria-label="settings">
                             <MoreVertIcon />
                         </IconButton>
                     }
                     title={author}
                     subheader={formattedDate}
+                    sx={{
+                        color: 'text.primary', // Light mode text
+                        '& .MuiCardHeader-subheader': { color: 'gray' }, // Default
+                        '& .MuiCardHeader-subheader.dark': { color: '#d1d5db' } // Dark mode
+                    }}
                 />
+
 
                 {/* Image */}
                 <CardMedia
@@ -63,7 +69,7 @@ export default function FeaturedBlogsCard({ blog }) {
 
                 {/* Content */}
                 <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography variant="body2" sx={{ color: '#55595c', }}>
+                    <Typography className='dark:text-gray-300' variant="body2" sx={{ color: '#55595c', }}>
                         {shortDescription}
                     </Typography>
                 </CardContent>
@@ -87,12 +93,12 @@ export default function FeaturedBlogsCard({ blog }) {
                         },
                     }}
                     disableSpacing
-                    className="card-actions"
+                    className="card-actions after:dark:bg-secondary "
                 >
-                    <IconButton aria-label="add to favorites" sx={{ color: '#8053f6' }}>
+                    <IconButton className='dark:text-secondary' aria-label="add to favorites" sx={{ color: '#8053f6' }}>
                         <FavoriteIcon />
                     </IconButton>
-                    <IconButton aria-label="share" sx={{ color: '#8053f6' }}>
+                    <IconButton className='dark:text-secondary' aria-label="share" sx={{ color: '#8053f6' }}>
                         <ShareIcon />
                     </IconButton>
                 </CardActions>

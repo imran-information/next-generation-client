@@ -5,55 +5,64 @@ import toast from 'react-hot-toast';
 import WishlistCard from '../components/WishlistCard';
 import useAxiosSecure from '../hooks/useAxiosCecure';
 import { Helmet } from 'react-helmet-async';
-
+import SectionTitle from '../components/shared/SectionTitle';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Wishlist = () => {
-    const { user } = useAuth()
-    const instance = useAxiosSecure()
+    const { user } = useAuth();
+    const instance = useAxiosSecure();
     const [wishlists, setWishlists] = useState([]);
-
-    // console.log(wishlists);
+    const [loading, setLoading] = useState(true); // Add loading state
 
     useEffect(() => {
-
-        wishlistsData()
-    }, [user])
+        wishlistsData();
+    }, [user]);
 
     const wishlistsData = async () => {
         try {
-            const { data } = await instance.get(`/wishlists/${user?.email}`,)
-            setWishlists(data)
-
+            setLoading(true); // Set loading to true before fetching data
+            const { data } = await instance.get(`/wishlists/${user?.email}`);
+            setWishlists(data);
         } catch (err) {
-            toast.error(err.response.data.message)
+            toast.error(err.response.data.message);
+        } finally {
+            setLoading(false); // Set loading to false after fetching data
         }
-    }
-
+    };
 
     // Wishlist delete 
     const handleDeleteWishlist = async (id) => {
         try {
-            await instance.delete(`/delete-wishlist/${id}`)
-            toast.success('wishlist delete successfully.!')
-            wishlistsData()
+            await instance.delete(`/delete-wishlist/${id}`);
+            toast.success('Wishlist deleted successfully!');
+            wishlistsData();
         } catch (err) {
             toast.error(err.response.data);
         }
-    }
+    };
 
-
-
+    if (loading) return <LoadingSpinner />; // Show loading spinner while fetching data
 
     return (
-        <div className="p-8 py-32 min-h-screen bg-[#f5f6ff]">
-            <Helmet>
-                <title>Next Gen | Wishlist</title>
-            </Helmet>
-            <h2 className="text-4xl  font-bold mb-4 text-center">Wishlist</h2>
-            <div className="w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-                {
-                    wishlists.map((wishlist) => <WishlistCard key={wishlist._id} handleDeleteWishlist={handleDeleteWishlist} wishlist={wishlist}></WishlistCard>)}
+        <div className="p-8 py-32 min-h-screen bg-bg dark:bg-neutral-900">
+            <div className="container mx-auto">
+                <Helmet>
+                    <title>Next Gen | Wishlist</title>
+                </Helmet>
+                <SectionTitle heading="Wishlist" subHeading="Your favorite items in one place." />
+                <div data-aos="zoom-in" data-aos-duration="1500" className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-10">
+                    {wishlists.length > 0 ? (
+                        wishlists.map((wishlist) => (
+                            <WishlistCard key={wishlist._id} handleDeleteWishlist={handleDeleteWishlist} wishlist={wishlist} />
+                        ))
+                    ) : (
+                        <div className="text-center col-span-full text-text-color text-lg">
+                            No items in your wishlist.
+                        </div>
+                    )}
+                </div>
             </div>
+
         </div>
     );
 };

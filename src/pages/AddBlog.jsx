@@ -91,12 +91,12 @@ const AddBlog = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <div className="py-40 px-5 md:px-0 min-h-screen" style={{ backgroundColor: '#f5f6ff' }}>
+            <div className="py-40 px-5 md:px-0 min-h-screen bg-bg dark:bg-neutral-900" >
                 <Helmet>
                     <title>Next Gen | Add Blog</title>
                 </Helmet>
-                <div className="max-w-lg bg-white rounded mx-auto p-5 shadow-lg">
-                    <h1 className="text-2xl font-bold mb-4 text-center" style={{ color: '#8053f6' }}>
+                <div data-aos="zoom-in" data-aos-duration="1500" className="max-w-lg bg-white dark:bg-neutral-800 rounded mx-auto p-5 shadow-lg">
+                    <h1 className="text-2xl font-bold mb-4 text-center text-primary dark:text-secondary"  >
                         Add Blog
                     </h1>
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -178,7 +178,7 @@ const AddBlog = () => {
                         />
 
                         {/* Submit Button */}
-                        <Button fullWidth type="submit" variant="contained" sx={{ mb: 2 }}>
+                        <Button className='dark:bg-secondary bg-primary' fullWidth type="submit" variant="contained" sx={{ mb: 2 }}>
                             Submit
                         </Button>
                     </form>

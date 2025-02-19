@@ -10,7 +10,11 @@ export default {
 
     },
     extend: {
+      transitionDuration: {
+        400: '400ms', // 👈 You can add this if you really need `duration-400`
+      },
       colors: {
+
         primary: '#8053f6',
         secondary: '#00e29a',
         'primary-light': '#55595c',
@@ -26,5 +30,6 @@ export default {
   plugins: [
     require('daisyui'),
   ],
+  darkMode: 'class',
 }
 

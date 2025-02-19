@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Menu, MenuItem, Avatar, IconButton, Typography, Box, Button, Drawer, List, ListItem, ListItemText } from '@mui/material';
-import { Menu as MenuIcon, } from '@mui/icons-material';
+import { AppBar, Toolbar, Menu, MenuItem, Avatar, IconButton, Typography, Box, Button, Drawer, List, ListItem, ListItemText, Switch, FormControlLabel } from '@mui/material';
+import { Brightness4, Brightness7, Menu as MenuIcon } from '@mui/icons-material';
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import logo from '/logo.png';
@@ -11,6 +11,7 @@ const Navbar = () => {
     const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [darkMode, setDarkMode] = useState(true); // Set default to true for dark mode
 
     const handleMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -32,6 +33,35 @@ const Navbar = () => {
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
+    };
+
+    useEffect(() => {
+        // Initially set dark mode based on localStorage or default to dark mode
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+            setDarkMode(storedTheme === 'dark');
+        } else {
+            setDarkMode(true); // Set dark mode as default
+        }
+
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [darkMode]);
+
+    // ✅ Toggle dark mode and update localStorage
+    const handleToggleDarkMode = () => {
+        const newDarkMode = !darkMode;
+        setDarkMode(newDarkMode);
+        localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
+
+        if (newDarkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
     };
 
     const links = (
@@ -83,13 +113,12 @@ const Navbar = () => {
                     </>
                 )
             }
-
         </>
     );
 
     return (
-        <AppBar position="fixed" sx={{ backgroundColor: '#8053f6', zIndex: 1100 }}>
-            <div className="md:px-20">
+        <AppBar position="fixed" sx={{ zIndex: 1100 }}>
+            <div className='md:px-20 bg-primary dark:bg-neutral-900'>
                 <Toolbar className=''>
                     <IconButton edge="start" color="inherit" aria-label="menu" sx={{ display: { md: 'none' } }} onClick={handleDrawerToggle}>
                         <MenuIcon />
@@ -101,13 +130,38 @@ const Navbar = () => {
                     </Link>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center' }, gap: 2, ml: 3 }}>{links}</Box>
-
+                    {/* <FormControlLabel
+                        control={
+                            <Switch
+                                checked={darkMode}
+                                onChange={handleToggleDarkMode}
+                                name="darkMode"
+                                color="secondary" // You can change this to any color like primary, secondary, etc.
+                                sx={{
+                                    '& .MuiSwitch-thumb': {
+                                        backgroundColor: darkMode ? '#fff' : '#000', // Custom color for the thumb
+                                    },
+                                    '& .MuiSwitch-track': {
+                                        backgroundColor: darkMode ? '#8053f6' : '#000', // Custom color for the track
+                                    },
+                                }}
+                            />
+                        }
+                        label={`${darkMode ? "Dark Mode" : 'Light Mode'}`} // Optional label
+                    /> */}
+                    <Switch className="mr-2"
+                        checked={darkMode}
+                        onChange={handleToggleDarkMode}
+                        name="darkMode"
+                        color="default"
+                        checkedIcon={<Brightness7 />} // Icon when checked (light mode)
+                        icon={<Brightness4/>} // Icon when unchecked (dark mode)
+                    />
                     {user ? (
                         <div
                             style={{
                                 display: 'block',
                                 marginLeft: 'auto',
-                                display: 'flex', // Adjusted to ensure proper display
                                 alignItems: 'center',
                             }}
                         >
@@ -138,7 +192,7 @@ const Navbar = () => {
                                 display: { xs: 'block', sm: 'none', md: 'block' },
                                 ml: { xs: 'auto', sm: 0 },
                                 px: 3,
-                                py: 1,
+                                py: 0.8,
                                 fontSize: '1rem',
                                 fontWeight: 'bold',
                                 textTransform: 'none',
@@ -201,11 +255,8 @@ const Navbar = () => {
                         )}
                     </List>
                 </Drawer>
-
-
-
             </div>
-        </AppBar>
+        </AppBar >
     );
 };
 

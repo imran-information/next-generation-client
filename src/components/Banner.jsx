@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button, IconButton } from '@mui/material';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const Banner = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -57,63 +59,67 @@ const Banner = () => {
             >
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-neutral-content text-center">
-                    <div className="max-w-2xl mx-auto">
+                    <div data-aos="zoom-in" data-aos-duration="1500" className="max-w-2xl mx-auto">
                         <h1 className="mb-5 text-4xl md:text-6xl font-bold text-white">{textContent[currentImageIndex].title}</h1>
                         <p className="mb-5 text-lg md:text-xl text-white opacity-80">
                             {textContent[currentImageIndex].description}
                         </p>
                         <div className="flex justify-center items-center gap-6">
-                            <Button
-                                sx={{
-                                    backgroundColor: '#00e29a',
-                                    color: 'white',
-                                    borderRadius: '50px',
-                                    px: 3,
-                                    py: 1,
-                                    fontSize: '1rem',
-                                    fontWeight: 'bold',
-                                    textTransform: 'none',
-                                    transition: 'all 0.3s ease-in-out',
-                                    boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
-                                    '&:hover': {
-                                        backgroundColor: '#00c288',
-                                        boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
-                                        transform: 'translateY(-2px)',
-                                    },
-                                    '&:active': {
-                                        transform: 'translateY(0px)',
-                                        boxShadow: '0px 3px 8px rgba(0, 226, 154, 0.3)',
-                                    },
-                                }}>
-                                Learn more
-                            </Button>
 
-                            <Button variant="Outlined"
-                                sx={{
-                                    color: '#00e29a',
-                                    borderRadius: '50px',
-                                    px: 3,
-                                    py: 0.9,
-                                    fontSize: '1rem',
-                                    fontWeight: 'bold',
-                                    textTransform: 'none',
-                                    border: '2px solid #00e29a',
-                                    transition: 'all 0.3s ease-in-out',
-                                    boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
-                                    '&:hover': {
-                                        backgroundColor: '#00c288',
-                                        boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
-                                        transform: 'translateY(-2px)',
+                            <Link to="/featured-blogs">
+                                <Button
+                                    sx={{
+                                        backgroundColor: '#00e29a',
                                         color: 'white',
-                                    },
-                                    '&:active': {
-                                        transform: 'translateY(0px)',
-                                        boxShadow: '0px 3px 8px rgba(0, 226, 154, 0.3)',
-                                    },
-                                }}
-                            >
-                                Try for free
-                            </Button>
+                                        borderRadius: '50px',
+                                        px: 3,
+                                        py: 1,
+                                        fontSize: '1rem',
+                                        fontWeight: 'bold',
+                                        textTransform: 'none',
+                                        transition: 'all 0.3s ease-in-out',
+                                        boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
+                                        '&:hover': {
+                                            backgroundColor: '#00c288',
+                                            boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
+                                            transform: 'translateY(-2px)',
+                                        },
+                                        '&:active': {
+                                            transform: 'translateY(0px)',
+                                            boxShadow: '0px 3px 8px rgba(0, 226, 154, 0.3)',
+                                        },
+                                    }}>
+                                    Learn more
+                                </Button>
+                            </Link>
+                            <HashLink smooth to="/#started">
+                                <Button variant="Outlined"
+                                    sx={{
+                                        color: '#00e29a',
+                                        borderRadius: '50px',
+                                        px: 3,
+                                        py: 0.9,
+                                        fontSize: '1rem',
+                                        fontWeight: 'bold',
+                                        textTransform: 'none',
+                                        border: '2px solid #00e29a',
+                                        transition: 'all 0.3s ease-in-out',
+                                        boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
+                                        '&:hover': {
+                                            backgroundColor: '#00c288',
+                                            boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
+                                            transform: 'translateY(-2px)',
+                                            color: 'white',
+                                        },
+                                        '&:active': {
+                                            transform: 'translateY(0px)',
+                                            boxShadow: '0px 3px 8px rgba(0, 226, 154, 0.3)',
+                                        },
+                                    }}
+                                >
+                                    Try for free
+                                </Button>
+                            </HashLink>
 
                         </div>
                     </div>
@@ -121,7 +127,7 @@ const Banner = () => {
             </div>
 
             {/* Slider Navigation */}
-            <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center px-4">
+            <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center px-0 lg:px-4">
                 <IconButton
                     onClick={handlePrevImage}
                     sx={{

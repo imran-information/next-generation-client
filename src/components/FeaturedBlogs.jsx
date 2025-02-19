@@ -20,16 +20,16 @@ const FeaturedBlogs = () => {
     });
 
     if (isPending) return <LoadingSpinner />;
-    if (blogs.length === 0) return <div>No blogs found.</div>;
+    if (blogs.length === 0) return <div className="text-primary container mx-auto">No blogs found.</div>;
 
     return (
-        <section className="py-20 bg-slate-50">
-            <div className="container mx-auto px-8 md:px-0">
+        <section className="py-20 bg-slate-50 dark:bg-neutral-800">
+            <div className="container mx-auto px-8 lg:px-0">
                 <SectionTitle
                     heading={'Featured Blogs'}
                     subHeading={"Explore our featured blogs to get the latest insights on web development and beyond."}
                 />
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div data-aos="zoom-in" data-aos-duration="1500" className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {blogs.map((blog) => (
                         <FeaturedBlogsCard key={blog._id} blog={blog} />
                     ))}

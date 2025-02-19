@@ -9,10 +9,10 @@ const BlogCard = ({ blog, handleWishlist }) => {
     const { _id, title, imageUrl, category, shortDescription, longDescription } = blog || {};
 
     return (
-        <motion.div
+        <motion.div 
             whileHover={{ scale: 1.05 }} // Card hover motion (scale)
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all h-full flex flex-col"
+            className="bg-white dark:bg-neutral-800  rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all h-full flex flex-col"
         >
             {/* Image Preview */}
             <PhotoProvider maskOpacity={0.5}>
@@ -26,12 +26,12 @@ const BlogCard = ({ blog, handleWishlist }) => {
             </PhotoProvider>
 
             {/* Card Content */}
-            <div className="p-5 flex flex-col flex-grow">
-                <Link to={`/blog-details/${_id}`} className="text-xl font-semibold text-text-color hover:text-secondary ">{title}</Link>
-                <p className="text-sm text-primary-light mt-2 mb-4">{shortDescription.substring(0, 100)}...</p>
+            <div className="p-5 flex flex-col flex-grow ">
+                <Link to={`/blog-details/${_id}`} className="text-xl font-semibold text-text-color dark:text-gray-300 hover:text-secondary dark:hover:text-secondary ">{title}</Link>
+                <p className="text-sm text-primary-light dark:text-gray-300 mt-2 mb-4">{shortDescription.substring(0, 100)}...</p>
 
                 {/* Category Badge */}
-                <span className="text-xs bg-secondary text-white px-3 py-1 rounded-full self-start">
+                <span className="text-xs bg-secondary text-white font-bold px-3 py-1 rounded-full self-start">
                     {category}
                 </span>
 
@@ -71,12 +71,7 @@ const BlogCard = ({ blog, handleWishlist }) => {
                     </Link>
 
 
-                    {/* <button
-                        className="px-5 py-2 text-white bg-[#00e29a] hover:bg-[#2afcb9] transition rounded-lg font-semibold"
-                        onClick={() => handleWishlist(_id, title, imageUrl, category, shortDescription, longDescription)}
-                    >
-                        Add to Wishlist
-                    </button> */}
+
                 </div>
             </div>
         </motion.div>

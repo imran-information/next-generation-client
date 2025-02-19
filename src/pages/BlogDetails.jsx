@@ -7,6 +7,7 @@ import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../hooks/useAxiosCecure';
 import { Helmet } from 'react-helmet-async';
+import SectionTitle from '../components/shared/SectionTitle';
 
 const BlogDetails = () => {
     const [blog, setBlog] = useState({})
@@ -36,6 +37,33 @@ const BlogDetails = () => {
         getComments();
     }, [id])
 
+    if (!blog?._id) return <LoadingSpinner />
+
+    // add wishlist in DB
+    const handleWishlist = async (id, title, imageUrl, category, shortDescription, longDescription) => {
+        if (!user?.email) {
+            return navigate('/signIn')
+        }
+
+        const wishlistData = {
+            id,
+            title,
+            imageUrl,
+            category,
+            shortDescription,
+            longDescription,
+            email: user?.email,
+        }
+
+        // instance not work !!!
+        try {
+            await axios.post(`${import.meta.env.VITE_API_URL}/add-wishlist`, wishlistData)
+            toast.success('wishlist added successfully.!')
+            navigate('/wishlist')
+        } catch (err) {
+            toast.error(err.response.data);
+        }
+    }
 
     // comment submit DB 
     const handleCommentSubmit = async (commentText, id, author, author_photoUrl, setCommentText) => {
@@ -66,14 +94,14 @@ const BlogDetails = () => {
 
     // console.log(blog);
     return (
-        <div className="p-8 py-32 bg-[#f5f6ff]">
+        <div className="p-8 py-32 bg-bg dark:bg-neutral-900">
             <Helmet>
                 <title>Next Gen | Blog Details</title>
             </Helmet>
-            <h2 className="text-4xl  font-bold mb-4 text-center">Blog Details</h2>
-            <div className="w-10/12 mx-auto mt-10">
+            <SectionTitle heading="Blog Details" subHeading="Read and engage with our latest blog posts." />
+            <div className="container mx-auto mt-10">
                 {
-                    <BlogDetailsCard blog={blog} handleCommentSubmit={handleCommentSubmit} comments={comments}></BlogDetailsCard>
+                    <BlogDetailsCard blog={blog} handleWishlist={handleWishlist} handleCommentSubmit={handleCommentSubmit} comments={comments}></BlogDetailsCard>
                 }
             </div>
         </div>
