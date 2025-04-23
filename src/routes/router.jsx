@@ -11,6 +11,9 @@ import Home from "../pages/Home";
 import BlogDetails from "../pages/BlogDetails";
 import AddBlog from "../pages/AddBlog";
 import UpdateBlog from "../pages/UpdateBlog";
+import DashboardLayout from "../layouts/DashboardLayout";
+import Profile from "../pages/dashboard/Profile";
+import DashboardHome from "../pages/dashboard/DashboardHome";
 
 
 const router = createBrowserRouter([
@@ -64,6 +67,25 @@ const router = createBrowserRouter([
             }
 
         ],
+
+    },
+    //  Dashboard layout
+    {
+        path: 'dashboard',
+        element: <PrivateRoute>
+            <DashboardLayout></DashboardLayout>
+        </PrivateRoute>,
+        children: [
+
+            {
+                path: 'home',
+                element: <DashboardHome />
+            },
+            {
+                path: 'profile',
+                element: <Profile></Profile>
+            },
+        ]
     }
 ])
 

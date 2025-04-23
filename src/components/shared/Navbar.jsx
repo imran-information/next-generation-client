@@ -110,6 +110,14 @@ const Navbar = () => {
                         >
                             Wishlist
                         </NavLink>
+                        <NavLink
+                            to="/dashboard/home"
+                            className={({ isActive }) =>
+                                `hover:text-secondary transition-colors duration-300 ${isActive ? 'text-secondary font-bold' : ''}`
+                            }
+                        >
+                            Dashboard
+                        </NavLink>
                     </>
                 )
             }
@@ -155,7 +163,7 @@ const Navbar = () => {
                         name="darkMode"
                         color="default"
                         checkedIcon={<Brightness7 />} // Icon when checked (light mode)
-                        icon={<Brightness4/>} // Icon when unchecked (dark mode)
+                        icon={<Brightness4 />} // Icon when unchecked (dark mode)
                     />
                     {user ? (
                         <div
@@ -250,6 +258,9 @@ const Navbar = () => {
                                 </ListItem>
                                 <ListItem button component={NavLink} to="/wishlist" onClick={handleDrawerToggle}>
                                     <ListItemText primary="Wishlist" />
+                                </ListItem>
+                                <ListItem button component={NavLink} to="/dashboard" onClick={handleDrawerToggle}>
+                                    <ListItemText primary="Dashboard" />
                                 </ListItem>
                             </>
                         )}
