@@ -109,7 +109,29 @@ const AddBlog = () => {
                             onChange={handleChange}
                             required
                             variant="outlined"
-                            sx={{ mb: 2 }}
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    borderRadius: '10px',
+                                    color: '#00e29a',
+                                    fontSize: '1rem',
+                                    fontWeight: 'bold',
+                                    '& fieldset': {
+                                        border: '2px solid #00e29a',
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: '#00c288',
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                        borderColor: '#00c288',
+                                    },
+                                },
+                                '& .MuiInputLabel-root': {
+                                    color: '#00e29a',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    color: '#00c288',
+                                },
+                            }}
                         />
 
                         {/* Image URL */}
@@ -121,11 +143,56 @@ const AddBlog = () => {
                             onChange={handleChange}
                             required
                             variant="outlined"
-                            sx={{ mb: 2 }}
+                            type="url"
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    borderRadius: '10px',
+                                    color: '#00e29a',
+                                    fontSize: '1rem',
+                                    fontWeight: 'bold',
+                                    '& fieldset': {
+                                        border: '2px solid #00e29a',
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: '#00c288',
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                        borderColor: '#00c288',
+                                    },
+                                },
+                                '& .MuiInputLabel-root': {
+                                    color: '#00e29a',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    color: '#00c288',
+                                },
+                            }}
                         />
 
                         {/* Category */}
-                        <FormControl fullWidth required sx={{ mb: 2 }}>
+                        <FormControl fullWidth required sx={{
+                            '& .MuiOutlinedInput-root': {
+                                borderRadius: '10px',
+                                color: '#00e29a',
+                                fontSize: '1rem',
+                                fontWeight: 'bold',
+                                '& fieldset': {
+                                    border: '2px solid #00e29a',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#00c288',
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#00c288',
+                                },
+                            },
+                            '& .MuiInputLabel-root': {
+                                color: '#00e29a',
+                            },
+                            '& .MuiInputLabel-root.Mui-focused': {
+                                color: '#00c288',
+                            },
+                        }}>
                             <InputLabel>Category</InputLabel>
                             <Select
                                 label="Category"
@@ -152,7 +219,29 @@ const AddBlog = () => {
                             multiline
                             rows={3}
                             variant="outlined"
-                            sx={{ mb: 2 }}
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    borderRadius: '10px',
+                                    color: '#00e29a',
+                                    fontSize: '1rem',
+                                    fontWeight: 'bold',
+                                    '& fieldset': {
+                                        border: '2px solid #00e29a',
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: '#00c288',
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                        borderColor: '#00c288',
+                                    },
+                                },
+                                '& .MuiInputLabel-root': {
+                                    color: '#00e29a',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    color: '#00c288',
+                                },
+                            }}
                         />
 
                         {/* Long Description */}
@@ -167,19 +256,54 @@ const AddBlog = () => {
                             rows={5}
                             variant="outlined"
                             sx={{
-                                mb: 2,
                                 '& .MuiOutlinedInput-root': {
-                                    borderRadius: '8px',
+                                    borderRadius: '10px',
+                                    color: '#00e29a',
+                                    fontSize: '1rem',
+                                    fontWeight: 'bold',
+                                    '& fieldset': {
+                                        border: '2px solid #00e29a',
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: '#00c288',
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                        borderColor: '#00c288',
+                                    },
                                 },
-                                '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                    borderColor: '#8053f6', // Focus border color
+                                '& .MuiInputLabel-root': {
+                                    color: '#00e29a',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    color: '#00c288',
                                 },
                             }}
                         />
 
                         {/* Submit Button */}
-                        <Button className='dark:bg-secondary bg-primary' fullWidth type="submit" variant="contained" sx={{ mb: 2 }}>
-                            Submit
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            fullWidth
+                            sx={{
+                                backgroundColor: '#00e29a',
+                                color: 'white',
+                                borderRadius: '50px',
+                                px: 3,
+                                py: 1,
+                                fontSize: '1rem',
+                                fontWeight: 'bold',
+                                textTransform: 'none',
+                                transition: 'all 0.3s ease-in-out',
+                                boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
+                                '&:hover': {
+                                    backgroundColor: '#00c288',
+                                    boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
+                                    transform: 'translateY(-2px)',
+                                },
+                            }}
+                        >
+                            Add Blog
                         </Button>
                     </form>
                 </div>

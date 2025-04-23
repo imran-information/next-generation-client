@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Box, Avatar, Typography } from '@mui/material';
 import useAuth from '../../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Profile = () => {
     const { user, handleUpdateUserProfile } = useAuth();
@@ -64,16 +65,19 @@ const Profile = () => {
                     };
 
                     console.log('Final Updated User:', updatedUser);
-                    handleUpdateUserProfile(updatedUser.name, updatedUser.photoURL)
+                    await handleUpdateUserProfile(updatedUser.name, updatedUser.photoURL)
+                    toast.success('Profile updated successfully!');
                 } else {
                     console.error('Image upload failed:', data);
+                    toast.error('Image upload failed!');
                 }
             } catch (error) {
                 console.error('Upload error:', error);
+                toast.error('Something went wrong. Please try again.');
             }
         } else {
             console.log('No image selected. Proceeding with name and email only.');
-            // Update without changing photo
+            toast('No image selected. Updated name and email only.', { icon: 'ℹ️' });
         }
     };
 
@@ -143,7 +147,6 @@ const Profile = () => {
                         },
                         '&:hover fieldset': {
                             borderColor: '#00c288',
-                            backgroundColor: '#00c28820',
                         },
                         '&.Mui-focused fieldset': {
                             borderColor: '#00c288',
@@ -175,7 +178,6 @@ const Profile = () => {
                         },
                         '&:hover fieldset': {
                             borderColor: '#00c288',
-                            backgroundColor: '#00c28820',
                         },
                         '&.Mui-focused fieldset': {
                             borderColor: '#00c288',

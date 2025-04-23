@@ -1,17 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as motion from "motion/react-client";
-import { Button, Box, Typography, Card, CardMedia, CardContent, CardActions, IconButton } from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import { motion } from 'framer-motion';
+import {
+    Button,
+    Typography,
+    Card,
+    CardMedia,
+    CardContent,
+    CardActions,
+} from '@mui/material';
 
 const WishlistCard = ({ wishlist, handleDeleteWishlist }) => {
-    const { _id, id, title, imageUrl, category, shortDescription } = wishlist || {};
+    const { _id, id, title, imageUrl, shortDescription } = wishlist || {};
 
     return (
         <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.3 }}
-            sx={{ marginBottom: 4 }}
+            whileHover={{ scale: 1.03, boxShadow: '0 10px 20px rgba(0,0,0,0.15)' }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+            className="bg-white dark:bg-neutral-800 rounded-xl"
         >
             <Card
                 sx={{
@@ -19,79 +26,67 @@ const WishlistCard = ({ wishlist, handleDeleteWishlist }) => {
                     display: 'flex',
                     flexDirection: 'column',
                     height: '100%',
-                    position: 'relative',
                     overflow: 'hidden',
-                    '&:hover': {
-                        '& .card-actions': {
-                            '&::after': {
-                                width: '100%',
-                            }
-                        },
-                    },
+                    borderRadius: '16px',
+                    backgroundColor: 'transparent', // Use Tailwind background
+                    boxShadow: 'none', // Use Tailwind shadow if needed
                 }}
             >
-                {/* Image */}
                 <CardMedia
                     component="img"
                     sx={{ height: 200, objectFit: 'cover' }}
-                    image={imageUrl || 'https://i.ibb.co/com/7vkzw6K/3d-render-astronaut-with-target-3d-illustration-design-460848-8276.jpg'}
+                    image={
+                        imageUrl ||
+                        'https://i.ibb.co/com/7vkzw6K/3d-render-astronaut-with-target-3d-illustration-design-460848-8276.jpg'
+                    }
                     alt={title}
                 />
 
-                {/* Content */}
                 <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#333' }}>
+                    <Typography
+                        variant="h6"
+                        fontWeight="bold"
+                        className="text-text-color dark:text-gray-200"
+                    >
                         {title}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: '#55595c', marginBottom: 2 }}>
-                        {shortDescription.substring(0, 200)}...
+
+                    <Typography
+                        variant="body2"
+                        mb={2}
+                        className="text-primary-light dark:text-gray-400"
+                    >
+                        {shortDescription?.substring(0, 200)}...
                     </Typography>
+
                 </CardContent>
 
-                {/* Card Actions with Bottom Border Effect */}
                 <CardActions
                     sx={{
-                        marginTop: 'auto',
-                        position: 'relative',
-                        paddingBottom: 2,
-                        borderBottom: '2px solid transparent',
-                        '&::after': {
-                            content: '""',
-                            position: 'absolute',
-                            bottom: 0,
-                            left: 0,
-                            width: '0%',
-                            height: '2px',
-                            backgroundColor: '#8053f6',
-                            transition: 'width 0.5s ease-in-out', // Animate width on hover
-                        },
+                        px: 2,
+                        pb: 2,
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        borderTop: '1px solid #e0e0e0',
                     }}
-                    style={{ display: 'flex', justifyContent: 'space-between' }}
-                    disableSpacing
-                    className="card-actions"
                 >
                     <Link to={`/blog-details/${id}`} style={{ textDecoration: 'none' }}>
                         <Button
                             variant="outlined"
                             sx={{
-                                color: '#8053f6',
+                                color: '#00e29a',
                                 borderRadius: '50px',
-                                paddingX: 3,
-                                paddingY: 1,
+                                px: 3,
+                                fontSize: '1rem',
                                 fontWeight: 'bold',
                                 textTransform: 'none',
-                                border: '2px solid #8053f6',
+                                border: '2px solid #00e29a',
                                 transition: 'all 0.3s ease-in-out',
-                                boxShadow: '0px 4px 10px rgba(128, 83, 246, 0.3)',
                                 '&:hover': {
-                                    backgroundColor: '#8053f6',
-                                    color: 'white',
-                                    boxShadow: '0px 6px 15px rgba(128, 83, 246, 0.5)',
+                                    backgroundColor: '#00c288',
+                                    boxShadow: '0 6px 15px rgba(0, 226, 154, 0.5)',
                                     transform: 'translateY(-2px)',
-                                },
-                                '&:active': {
-                                    transform: 'translateY(0px)',
-                                    boxShadow: '0px 3px 8px rgba(128, 83, 246, 0.3)',
+                                    color: 'white',
                                 },
                             }}
                         >
@@ -105,17 +100,22 @@ const WishlistCard = ({ wishlist, handleDeleteWishlist }) => {
                             backgroundColor: '#00e29a',
                             color: 'white',
                             borderRadius: '50px',
-                            paddingX: 3,
-                            paddingY: 1,
+                            px: 3,
+                            py: 0.8,
+                            fontSize: '1rem',
                             fontWeight: 'bold',
                             textTransform: 'none',
+                            transition: 'all 0.3s ease-in-out',
+                            boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
                             '&:hover': {
-                                backgroundColor: '#2afcb9',
+                                backgroundColor: '#00c288',
+                                boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
+                                transform: 'translateY(-2px)',
                             },
                         }}
                         onClick={() => handleDeleteWishlist(_id)}
                     >
-                        Remove  Wishlist
+                        Remove
                     </Button>
                 </CardActions>
             </Card>

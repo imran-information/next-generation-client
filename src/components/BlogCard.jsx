@@ -1,20 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as motion from "motion/react-client";
+import { motion } from "framer-motion";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { Button } from '@mui/material';
 
 const BlogCard = ({ blog, handleWishlist }) => {
-    const { _id, title, imageUrl, category, shortDescription, longDescription } = blog || {};
+    const { _id, title, imageUrl, category, shortDescription } = blog || {};
 
     return (
-        <motion.div 
-            whileHover={{ scale: 1.05 }} // Card hover motion (scale)
-            transition={{ duration: 0.3 }}
-            className="bg-white dark:bg-neutral-800  rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all h-full flex flex-col"
+        <motion.div
+            whileHover={{ scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.15)" }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 180, damping: 12 }}
+            className="bg-white dark:bg-neutral-800 rounded-xl overflow-hidden h-full flex flex-col"
         >
-            {/* Image Preview */}
+            {/* Image with Zoom */}
             <PhotoProvider maskOpacity={0.5}>
                 <PhotoView src={imageUrl}>
                     <img
@@ -25,22 +26,26 @@ const BlogCard = ({ blog, handleWishlist }) => {
                 </PhotoView>
             </PhotoProvider>
 
-            {/* Card Content */}
-            <div className="p-5 flex flex-col flex-grow ">
-                <Link to={`/blog-details/${_id}`} className="text-xl font-semibold text-text-color dark:text-gray-300 hover:text-secondary dark:hover:text-secondary ">{title}</Link>
-                <p className="text-sm text-primary-light dark:text-gray-300 mt-2 mb-4">{shortDescription.substring(0, 100)}...</p>
+            {/* Content */}
+            <div className="p-5 flex flex-col flex-grow">
+                <Link
+                    to={`/blog-details/${_id}`}
+                    className="text-xl font-semibold text-text-color dark:text-gray-200 hover:text-secondary transition-colors"
+                >
+                    {title}
+                </Link>
+                <p className="text-sm text-primary-light dark:text-gray-300 mt-2 mb-4">
+                    {shortDescription?.substring(0, 100)}...
+                </p>
 
                 {/* Category Badge */}
                 <span className="text-xs bg-secondary text-white font-bold px-3 py-1 rounded-full self-start">
                     {category}
                 </span>
 
-                {/* Buttons */}
+                {/* Button */}
                 <div className="mt-auto flex justify-center pt-5">
-                    <Link
-                        to={`/blog-details/${_id}`}
-                        style={{ textDecoration: 'none' }} // Removes default link underline
-                    >
+                    <Link to={`/blog-details/${_id}`} style={{ textDecoration: 'none' }}>
                         <Button
                             variant="outlined"
                             sx={{
@@ -56,22 +61,15 @@ const BlogCard = ({ blog, handleWishlist }) => {
                                 boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
                                 '&:hover': {
                                     backgroundColor: '#00c288',
-                                    boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
+                                    color: '#fff',
                                     transform: 'translateY(-2px)',
-                                    color: 'white',
-                                },
-                                '&:active': {
-                                    transform: 'translateY(0px)',
-                                    boxShadow: '0px 3px 8px rgba(0, 226, 154, 0.3)',
+                                    boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
                                 },
                             }}
                         >
                             See More
                         </Button>
                     </Link>
-
-
-
                 </div>
             </div>
         </motion.div>

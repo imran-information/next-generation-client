@@ -51,7 +51,6 @@ const Navbar = () => {
         }
     }, [darkMode]);
 
-    // ✅ Toggle dark mode and update localStorage
     const handleToggleDarkMode = () => {
         const newDarkMode = !darkMode;
         setDarkMode(newDarkMode);

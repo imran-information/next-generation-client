@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import useAxiosSecure from '../hooks/useAxiosCecure';
 import { Helmet } from 'react-helmet-async';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { Button } from '@mui/material';
 
 const UpdateBlog = () => {
     const navigate = useNavigate();
@@ -61,12 +62,12 @@ const UpdateBlog = () => {
     };
 
     return (
-        <div className="py-40 px-5 md:px-0 min-h-screen" style={{ backgroundColor: "#f5f6ff" }}>
+        <div className="py-40 px-5 md:px-0 min-h-screen bg-bg dark:bg-neutral-900" >
             <Helmet>
                 <title>Next Gen | Update Blog</title>
             </Helmet>
-            <div className="max-w-lg bg-white rounded-lg mx-auto p-5 shadow-lg">
-                <h1 className="text-2xl font-bold mb-4 text-center" style={{ color: "#8053f6" }}>
+            <div className="max-w-lg bg-white dark:bg-neutral-800 rounded-lg mx-auto p-5 shadow-lg">
+                <h1 className="text-2xl font-bold mb-4 text-center  text-secondary ">
                     Update Blog
                 </h1>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -79,7 +80,7 @@ const UpdateBlog = () => {
                             name="title"
                             value={formData.title}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8053f6]"
+                            className="w-full px-3 py-2 border bg-white dark:bg-neutral-800 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00e29a]"
                             placeholder="Enter blog title"
                             required
                         />
@@ -94,7 +95,7 @@ const UpdateBlog = () => {
                             name="imageUrl"
                             value={formData.imageUrl}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8053f6]"
+                            className="w-full px-3 py-2 border bg-white dark:bg-neutral-800 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00e29a]"
                             placeholder="Enter image URL"
                             required
                         />
@@ -108,7 +109,7 @@ const UpdateBlog = () => {
                             name="category"
                             value={formData.category}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8053f6]"
+                            className="w-full px-3 py-2 border bg-white dark:bg-neutral-800 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00e29a]"
                             required
                         >
                             <option value="" disabled>Select a category</option>
@@ -128,7 +129,7 @@ const UpdateBlog = () => {
                             name="shortDescription"
                             value={formData.shortDescription}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8053f6]"
+                            className="w-full px-3 py-2 border bg-white dark:bg-neutral-800 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00e29a]"
                             placeholder="Enter a short description"
                             rows="2"
                             required
@@ -143,7 +144,7 @@ const UpdateBlog = () => {
                             name="longDescription"
                             value={formData.longDescription}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8053f6]"
+                            className="w-full px-3 py-2 border bg-white dark:bg-neutral-800 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00e29a]"
                             placeholder="Enter a long description"
                             rows="5"
                             required
@@ -152,12 +153,30 @@ const UpdateBlog = () => {
 
                     {/* Submit Button */}
                     <div>
-                        <button
+                        <Button
                             type="submit"
-                            className="w-full bg-[#8053f6] text-white py-2 px-4 rounded-lg hover:bg-[#6a3cd2] transition"
+                            variant="contained"
+                            fullWidth
+                            sx={{
+                                backgroundColor: '#00e29a',
+                                color: 'white',
+                                borderRadius: '50px',
+                                px: 3,
+                                py: 1,
+                                fontSize: '1rem',
+                                fontWeight: 'bold',
+                                textTransform: 'none',
+                                transition: 'all 0.3s ease-in-out',
+                                boxShadow: '0px 4px 10px rgba(0, 226, 154, 0.3)',
+                                '&:hover': {
+                                    backgroundColor: '#00c288',
+                                    boxShadow: '0px 6px 15px rgba(0, 226, 154, 0.5)',
+                                    transform: 'translateY(-2px)',
+                                },
+                            }}
                         >
                             Update Blog
-                        </button>
+                        </Button>
                     </div>
                 </form>
             </div>
