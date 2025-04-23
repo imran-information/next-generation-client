@@ -18,31 +18,31 @@ export default function MultiSeriesRadar() {
                     label: 'Technology',
                     data: [35, 44, 24, 34, 28],
                     valueFormatter,
-                    color: '#bda9f8', // Technology color
+                    color: '#00e29a', // Technology color
                 },
                 {
                     label: 'Health',
                     data: [51, 6, 49, 30, 22],
                     valueFormatter,
-                    color: '#cabcf9', // Health color
+                    color: '#e0fdf4', // Health color
                 },
                 {
                     label: 'Travel',
                     data: [15, 25, 30, 50, 33],
                     valueFormatter,
-                    color: '#d8cffb', // Travel color
+                    color: '#66f0c4', // Travel color
                 },
                 {
                     label: 'Education',
                     data: [15, 25, 30, 50, 33],
                     valueFormatter,
-                    color: '#e5e0fc', // Education color
+                    color: '#00c288', // Education color
                 },
                 {
                     label: 'Lifestyle',
                     data: [60, 50, 15, 25, 10],
                     valueFormatter,
-                    color: '#f2f2fd', // Lifestyle color
+                    color: '#00a675', // Lifestyle color
                 },
             ]}
             radar={{

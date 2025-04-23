@@ -47,12 +47,12 @@ export default function LiveLineChart() {
             series={[
                 {
                     data: secondData,
-                    color: '#cabcf9', // Green color for second series
+                    color: '#66f0c4', // Green color for second series
                     strokeWidth: 2, // Thicker line
                 },
                 {
                     data: firstData,
-                    color: '#e5e0fc', // Blue color for first series
+                    color: '#00c288', // Blue color for first series
                     strokeWidth: 2, // Thicker line
                 },
             ]}

@@ -184,7 +184,9 @@ const Navbar = () => {
                             </IconButton>
 
                             <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
-                                <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                                <Link to='/dashboard/profile'>
+                                    <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                                </Link>
                                 <MenuItem onClick={handleSignOut}>Logout</MenuItem>
                             </Menu>
                         </div>

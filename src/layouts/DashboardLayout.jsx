@@ -30,11 +30,12 @@ import {
     Close as CloseIcon,  // Close icon for when sidebar is closed
 } from '@mui/icons-material';
 import useAuth from '../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const drawerWidth = 240;
 
 const DashboardLayout = () => {
-    const { user } = useAuth();
+    const { user, handleSignOutUser } = useAuth();
     const [anchorEl, setAnchorEl] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(true);
     const theme = useTheme();
@@ -48,16 +49,22 @@ const DashboardLayout = () => {
         setAnchorEl(null);
     };
 
-    const handleLogout = () => {
-        // Logout logic here
-        console.log('User logged out');
+    const handleLogout = async () => {
+        await handleSignOutUser()
+            .then(result => {
+                toast.success('Signed Out Successfully!');
+            })
+            .catch(error => {
+                console.error(error);
+            });
     };
 
     return (
         <Box sx={{ display: 'flex' }} className="dashboard-layout">
+            {/* Dashboard Nav  */}
             <CssBaseline />
-            <AppBar position="fixed" sx={{ zIndex: 1201, boxShadow: 5 }}>
-                <Toolbar className="bg-primary">
+            <AppBar position="fixed" sx={{ zIndex: 1201, boxShadow: 1 }}>
+                <Toolbar className="bg-white text-black">
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -69,7 +76,7 @@ const DashboardLayout = () => {
                     </IconButton>
 
                     <NavLink to="/" style={{ textDecoration: 'none' }}>
-                        <Typography variant="h5" noWrap>
+                        <Typography fontWeight="bold" variant="h5" noWrap>
                             Next Generation
                         </Typography>
                     </NavLink>
@@ -107,6 +114,7 @@ const DashboardLayout = () => {
                 </Toolbar>
             </AppBar>
 
+            {/* Dashboard Sidebar  */}
             <Drawer
                 variant={isMobile ? 'temporary' : 'permanent'}
                 open={sidebarOpen}
@@ -128,13 +136,13 @@ const DashboardLayout = () => {
                         {({ isActive }) => (
                             <ListItem button selected={isActive}>
                                 <ListItemIcon>
-                                    <DashboardIcon sx={{ color: isActive ? '#8053f6' : 'inherit' }} />
+                                    <DashboardIcon sx={{ color: isActive ? '#00e29a' : 'inherit' }} />
                                 </ListItemIcon>
                                 <ListItemText
                                     primary="Dashboard Home"
                                     primaryTypographyProps={{
                                         fontWeight: isActive ? 'bold' : 'normal',
-                                        color: isActive ? '#8053f6' : 'inherit',
+                                        color: isActive ? '#00e29a' : 'inherit',
                                     }}
                                 />
                             </ListItem>
@@ -145,13 +153,13 @@ const DashboardLayout = () => {
                         {({ isActive }) => (
                             <ListItem button selected={isActive}>
                                 <ListItemIcon>
-                                    <AccountCircleIcon sx={{ color: isActive ? '#8053f6' : 'inherit' }} />
+                                    <AccountCircleIcon sx={{ color: isActive ? '#00e29a' : 'inherit' }} />
                                 </ListItemIcon>
                                 <ListItemText
                                     primary="Profile"
                                     primaryTypographyProps={{
                                         fontWeight: isActive ? 'bold' : 'normal',
-                                        color: isActive ? '#8053f6' : 'inherit',
+                                        color: isActive ? '#00e29a' : 'inherit',
                                     }}
                                 />
                             </ListItem>
