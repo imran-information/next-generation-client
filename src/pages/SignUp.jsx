@@ -115,14 +115,27 @@ const SignUp = () => {
                                 fullWidth
                                 required
                                 sx={{
-                                    borderRadius: '10px',
-                                    paddingY: '12px',
-                                    input: { color: 'white' },
-                                    '& .MuiInputLabel-root': { color: '#ccc' },
                                     '& .MuiOutlinedInput-root': {
-                                        '& fieldset': { borderColor: '#555' },
-                                        '&:hover fieldset': { borderColor: '#00e29a' },
-                                        '&.Mui-focused fieldset': { borderColor: '#00e29a' },
+                                        borderRadius: '10px',
+                                        color: '#00e29a',
+                                        marginBottom:'15px',
+                                        fontSize: '1rem',
+                                        fontWeight: 'bold',
+                                        '& fieldset': {
+                                            border: '2px solid #00e29a',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: '#00c288',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#00c288',
+                                        },
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        color: '#00e29a',
+                                    },
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: '#00c288',
                                     },
                                 }}
                             />
@@ -137,14 +150,27 @@ const SignUp = () => {
                                 fullWidth
                                 required
                                 sx={{
-                                    borderRadius: '10px',
-                                    paddingY: '12px',
-                                    input: { color: 'white' },
-                                    '& .MuiInputLabel-root': { color: '#ccc' },
                                     '& .MuiOutlinedInput-root': {
-                                        '& fieldset': { borderColor: '#555' },
-                                        '&:hover fieldset': { borderColor: '#00e29a' },
-                                        '&.Mui-focused fieldset': { borderColor: '#00e29a' },
+                                        borderRadius: '10px',
+                                        color: '#00e29a',
+                                        marginBottom:'15px',
+                                        fontSize: '1rem',
+                                        fontWeight: 'bold',
+                                        '& fieldset': {
+                                            border: '2px solid #00e29a',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: '#00c288',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#00c288',
+                                        },
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        color: '#00e29a',
+                                    },
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: '#00c288',
                                     },
                                 }}
                             />
@@ -160,14 +186,27 @@ const SignUp = () => {
                                 required
                                 autoComplete="email"
                                 sx={{
-                                    borderRadius: '10px',
-                                    paddingY: '12px',
-                                    input: { color: 'white' },
-                                    '& .MuiInputLabel-root': { color: '#ccc' },
                                     '& .MuiOutlinedInput-root': {
-                                        '& fieldset': { borderColor: '#555' },
-                                        '&:hover fieldset': { borderColor: '#00e29a' },
-                                        '&.Mui-focused fieldset': { borderColor: '#00e29a' },
+                                        borderRadius: '10px',
+                                        color: '#00e29a',
+                                        marginBottom:'15px',
+                                        fontSize: '1rem',
+                                        fontWeight: 'bold',
+                                        '& fieldset': {
+                                            border: '2px solid #00e29a',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: '#00c288',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#00c288',
+                                        },
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        color: '#00e29a',
+                                    },
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: '#00c288',
                                     },
                                 }}
                             />
@@ -183,13 +222,27 @@ const SignUp = () => {
                                 required
                                 autoComplete="current-password"
                                 sx={{
-                                    borderRadius: '10px',
-                                    input: { color: 'white' },
-                                    '& .MuiInputLabel-root': { color: '#ccc' },
                                     '& .MuiOutlinedInput-root': {
-                                        '& fieldset': { borderColor: '#555' },
-                                        '&:hover fieldset': { borderColor: '#00e29a' },
-                                        '&.Mui-focused fieldset': { borderColor: '#00e29a' },
+                                        borderRadius: '10px',
+                                        color: '#00e29a',
+                                        marginBottom:'15px',
+                                        fontSize: '1rem',
+                                        fontWeight: 'bold',
+                                        '& fieldset': {
+                                            border: '2px solid #00e29a',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: '#00c288',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#00c288',
+                                        },
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        color: '#00e29a',
+                                    },
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: '#00c288',
                                     },
                                 }}
                             />
