@@ -96,7 +96,7 @@ const BlogDetails = () => {
     return (
         <div className="p-8 py-32 bg-bg dark:bg-neutral-900">
             <Helmet>
-                <title>Next Gen | Blog Details</title>
+                <title>Next Generation | Blog Details</title>
             </Helmet>
             <SectionTitle heading="Blog Details" subHeading="Read and engage with our latest blog posts." />
             <div className="container mx-auto mt-10">

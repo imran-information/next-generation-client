@@ -89,7 +89,7 @@ const FeaturedBlogs = () => {
     return (
         <div className="py-20 min-h-screen bg-bg dark:bg-neutral-900 mt-20">
             <Helmet>
-                <title>Next Gen | Top Posts</title>
+                <title>Next Generation | Top Posts</title>
             </Helmet>
             <div data-aos="zoom-in" data-aos-duration="1500" className="container mx-auto bg-slate-50 dark:bg-neutral-800 shadow-lg rounded-2xl p-6">
                 <h1 className="text-3xl font-bold mb-6 text-center text-primary dark:text-secondary">Top Posts</h1>

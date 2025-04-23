@@ -93,7 +93,7 @@ const AddBlog = () => {
         <ThemeProvider theme={theme}>
             <div className="py-40 px-5 md:px-0 min-h-screen bg-bg dark:bg-neutral-900" >
                 <Helmet>
-                    <title>Next Gen | Add Blog</title>
+                    <title>Next Generation | Add Blog</title>
                 </Helmet>
                 <div data-aos="zoom-in" data-aos-duration="1500" className="max-w-lg bg-white dark:bg-neutral-800 rounded mx-auto p-5 shadow-lg">
                     <h1 className="text-2xl font-bold mb-4 text-center text-primary dark:text-secondary"  >

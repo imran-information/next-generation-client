@@ -63,7 +63,7 @@ const AllBlogs = () => {
     return (
         <div className="p-8 py-32 min-h-screen bg-bg dark:bg-neutral-900">
             <Helmet>
-                <title>Next Gen | All Blog</title>
+                <title>Next Generation | All Blog</title>
             </Helmet>
             <SectionTitle heading="All Blogs" subHeading="Explore all the blogs here" />
             <div data-aos="zoom-in" data-aos-duration="1500" className="lg:flex justify-between items-center container mx-auto mb-8">

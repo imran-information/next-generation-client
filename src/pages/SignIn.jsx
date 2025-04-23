@@ -42,7 +42,7 @@ const SignIn = () => {
     return (
         <div className="hero min-h-screen bg-bg dark:bg-neutral-900 text-white py-20">
             <Helmet>
-                <title>Next Gen | SignIn</title>
+                <title>Next Generation | SignIn</title>
             </Helmet>
 
             <div data-aos="zoom-in" data-aos-duration="1500" className="hero-content flex-col lg:flex-row-reverse items-center gap-10 justify-between">

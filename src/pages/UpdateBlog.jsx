@@ -64,7 +64,7 @@ const UpdateBlog = () => {
     return (
         <div className="py-40 px-5 md:px-0 min-h-screen bg-bg dark:bg-neutral-900" >
             <Helmet>
-                <title>Next Gen | Update Blog</title>
+                <title>Next Generation | Update Blog</title>
             </Helmet>
             <div className="max-w-lg bg-white dark:bg-neutral-800 rounded-lg mx-auto p-5 shadow-lg">
                 <h1 className="text-2xl font-bold mb-4 text-center  text-secondary ">

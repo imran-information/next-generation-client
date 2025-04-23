@@ -63,7 +63,7 @@ const SignUp = () => {
     return (
         <div className="hero min-h-screen py-20 bg-bg dark:bg-neutral-900">
             <Helmet>
-                <title>Next Gen | Sign Up</title>
+                <title>Next Generation | Sign Up</title>
             </Helmet>
             <div data-aos="zoom-in" data-aos-duration="1500" className="hero-content flex-col lg:flex-row-reverse items-center gap-10 justify-between">
 
